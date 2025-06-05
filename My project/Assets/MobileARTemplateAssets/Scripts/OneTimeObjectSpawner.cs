@@ -1,28 +1,48 @@
+using System;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
-public class LimitedIndexSpawner : MonoBehaviour
+public class ObjectSpawner : MonoBehaviour
 {
-    public ObjectSpawner objectSpawner;
-    public int[] spawnLimits; // One entry per prefab index
-    private int[] spawnCounts;
+    [Header("Spawn Settings")]
+    public GameObject[] objectPrefabs;
+    public Transform spawnPoint;
+    public bool applyRandomRotation = true;
 
-    private void Awake()
+    [Tooltip("Index to determine which object to spawn.")]
+    public int spawnOptionIndex = 0;
+
+    /// <summary>
+    /// Event triggered when an object is spawned.
+    /// </summary>
+    public event Action<GameObject> objectSpawned;
+
+    public void Spawn()
     {
-        spawnCounts = new int[spawnLimits.Length];
+        Spawn(spawnOptionIndex);
     }
 
-    public void TrySpawn(int index)
+    public void Spawn(int index)
     {
-        if (index < 0 || index >= spawnLimits.Length) return;
-
-        if (spawnCounts[index] >= spawnLimits[index])
+        if (objectPrefabs == null || objectPrefabs.Length == 0)
         {
-            Debug.Log($"Spawn limit reached for index {index}.");
+            Debug.LogWarning("ObjectSpawner: No prefabs assigned.");
             return;
         }
 
-        objectSpawner.Spawn(index);
-        spawnCounts[index]++;
+        if (index < 0 || index >= objectPrefabs.Length)
+        {
+            Debug.LogWarning($"ObjectSpawner: Invalid spawn index {index}.");
+            return;
+        }
+
+        GameObject prefab = objectPrefabs[index];
+        Vector3 position = spawnPoint != null ? spawnPoint.position : transform.position;
+        Quaternion rotation = applyRandomRotation ? UnityEngine.Random.rotation : Quaternion.identity;
+
+
+        GameObject spawned = Instantiate(prefab, position, rotation);
+        objectSpawned?.Invoke(spawned);
+
+        Debug.Log($"Spawned {prefab.name} at {position}");
     }
 }
