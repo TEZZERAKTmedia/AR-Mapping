@@ -45,6 +45,10 @@ Builds_Android/
 # Unity Collaborate
 .collab/
 
+# iOS
+My project/mobile/Libraries/libiPhone-lib.a
+
+
 # Android/Gradle
 /Library/Android/
 /Library/PackageCache/
