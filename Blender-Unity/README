@@ -1,0 +1,120 @@
+# Blender → Unity Prefab Automation Tool
+
+This project provides a simple way to convert `.fbx` files exported from Blender into Unity `.prefab` files using CLI scripts, without needing to manually handle Unity’s editor for each asset.
+
+---
+
+## 📁 Project Structure
+
+```
+Blender-Unity/
+├── fbx/                      # Place your raw .fbx files here
+├── Assets/
+│   ├── Editor/
+│   │   ├── FBXBatchProcessor.cs
+│   │   └── ClearPrefabs.cs
+│   ├── Prefabs/              # Final generated prefab files
+│   └── TempImport/           # Temporary workspace for imports
+├── Scripts/
+│   ├── run.sh                # Runs Unity batch mode to generate prefabs
+│   └── clear_prefabs.sh      # Clears existing prefabs
+```
+
+---
+
+## 💠 Initial Setup
+
+To create the folder structure:
+
+```bash
+mkdir -p Blender-Unity/{fbx,Assets/{Editor,Prefabs,TempImport},Scripts}
+```
+
+---
+
+## 🧪 Script Details
+
+### `FBXBatchProcessor.cs`
+
+* Converts FBX files from `Assets/TempImport/` into `.prefab` files in `Assets/Prefabs/`.
+
+### `ClearPrefabs.cs`
+
+* Deletes all `.prefab` files from `Assets/Prefabs/` using Unity scripting.
+
+---
+
+## 🚀 Usage
+
+### 1. Add `.fbx` Files
+
+Export `.fbx` models from Blender and place them into:
+
+```
+Blender-Unity/Assets/TempImport/
+```
+
+---
+
+### 2. Run the Prefab Generator
+
+Run this from your terminal:
+
+```bash
+./Scripts/run.sh
+```
+
+It will:
+
+* Clear existing prefabs
+* Start Unity in batch mode
+* Generate prefabs from `.fbx` files
+
+---
+
+### 3. Clear Prefabs via CLI
+
+To delete all `.prefab` and `.meta` files:
+
+```bash
+./Scripts/clear_prefabs.sh
+```
+
+---
+
+## 🧠 Unity Path Configuration
+
+Edit your `run.sh` file to include your correct Unity version path:
+
+```bash
+UNITY_PATH="/Applications/Unity/Hub/Editor/6000.1.4f1/Unity.app/Contents/MacOS/Unity"
+```
+
+---
+
+## ✅ Full Workflow Example
+
+```bash
+cd Blender-Unity
+
+# Clear existing prefabs
+./Scripts/clear_prefabs.sh
+
+# Drop FBX into import folder
+cp ../model.fbx Assets/TempImport/
+
+# Generate new prefab
+./Scripts/run.sh
+```
+
+---
+
+## 🔧 Notes
+
+* Generated prefabs will lose their mesh reference if the original `.fbx` is deleted. Consider extracting meshes or duplicating final prefabs.
+* This tool is ideal for automation or scripting workflows across teams.
+
+---
+
+Built by \[Trentyn Nicholas] ⚡
+

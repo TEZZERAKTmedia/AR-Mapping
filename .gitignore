@@ -1,0 +1,63 @@
+# ───── Unity .gitignore ─────
+# Ignore these folders and files in a Unity project
+
+# OS-generated
+.DS_Store
+Thumbs.db
+
+# IDE / User-specific
+*.suo
+*.user
+*.userprefs
+*.csproj
+*.pidb
+*.booproj
+*.svd
+
+# Visual Studio
+.vs/
+*.ncb
+*.opensdf
+*.sdf
+*.VC.db
+
+# Rider
+.idea/
+*.sln.iml
+
+# Unity-generated folders
+Temp/
+Obj/
+Library/
+Logs/
+MemoryCaptures/
+UserSettings/
+
+# Build outputs
+Build/
+Builds/
+Builds_iOS/
+Builds_Android/
+*.xcodeproj
+*.xcworkspace
+*.xcuserdata
+
+# Unity Collaborate
+.collab/
+
+# Android/Gradle
+/Library/Android/
+/Library/PackageCache/
+/Library/AndroidPlayer/
+/Library/ScriptAssemblies/
+
+# Git LFS (if using)
+/Library/PackageCache/*
+/Library/Bee/
+
+# Crash Reports
+memoryCaptures/
+
+# Packed packages and caches
+Library/Bee/
+Library/PackageCache/
