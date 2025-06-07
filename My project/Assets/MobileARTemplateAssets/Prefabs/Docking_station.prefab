@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8580325256847850864}
   - component: {fileID: 4945417216654695853}
   - component: {fileID: 6643032068206722419}
-  - component: {fileID: 7409980410637700300}
   m_Layer: 0
   m_Name: Docking_station
   m_TagString: Untagged
@@ -284,18 +283,3 @@ MonoBehaviour:
   m_Elasticity: 0.15
   m_EnableElasticBreakLimit: 0
   m_ElasticBreakLimit: 0.5
---- !u!114 &7409980410637700300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4498805413711643387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f57c4b09d2ef4e68a734b93f90be800, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 4498805413711643387}
-  spawnPoint: {fileID: 0}
-  allowRespawn: 0

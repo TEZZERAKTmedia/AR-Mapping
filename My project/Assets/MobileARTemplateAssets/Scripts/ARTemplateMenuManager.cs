@@ -19,6 +19,10 @@ public class ARTemplateMenuManager : MonoBehaviour
     [Tooltip("Button that opens the create menu.")]
     Button m_CreateButton;
 
+    [SerializeField]
+    private LimitedObjectSpawner m_LimitedObjectSpawner;
+
+
     /// <summary>
     /// Button that opens the create menu.
     /// </summary>
@@ -395,12 +399,28 @@ public class ARTemplateMenuManager : MonoBehaviour
     /// Clear all created objects in the scene.
     /// </summary>
     public void ClearAllObjects()
+{
+    if (m_ObjectSpawner != null)
     {
         foreach (Transform child in m_ObjectSpawner.transform)
         {
             Destroy(child.gameObject);
         }
     }
+
+    if (m_LimitedObjectSpawner != null)
+    {
+        foreach (Transform child in m_LimitedObjectSpawner.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Also reset the internal count so new limited objects can be spawned
+       m_LimitedObjectSpawner.ClearAllSpawnedObjects();
+         // You'll implement this next
+    }
+}
+
 
     /// <summary>
     /// Triggers hide animation for menu.

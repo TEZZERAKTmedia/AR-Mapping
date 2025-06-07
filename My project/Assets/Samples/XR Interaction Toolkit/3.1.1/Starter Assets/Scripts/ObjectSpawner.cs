@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit.Utilities;
 
+
+
 namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 {
     /// <summary>
@@ -190,7 +192,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         /// Otherwise, it will spawn the prefab at the index.
         /// </remarks>
         /// <seealso cref="objectSpawned"/>
-        public bool TrySpawnObject(Vector3 spawnPoint, Vector3 spawnNormal)
+          public bool TrySpawnObject(Vector3 spawnPoint, Vector3 spawnNormal)
         {
             if (m_OnlySpawnInView)
             {
@@ -204,24 +206,34 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 }
             }
 
-            var objectIndex = isSpawnOptionRandomized ? Random.Range(0, m_ObjectPrefabs.Count) : m_SpawnOptionIndex;
-            var newObject = Instantiate(m_ObjectPrefabs[objectIndex]);
-            if (m_SpawnAsChildren)
-                newObject.transform.parent = transform;
+            var objectIndex = isSpawnOptionRandomized ? UnityEngine.Random.Range(0, m_ObjectPrefabs.Count) : m_SpawnOptionIndex;
+            var prefabToSpawn = m_ObjectPrefabs[objectIndex];
+            var objectName = prefabToSpawn.name;
 
-            newObject.transform.position = spawnPoint;
+            if (!LimitedObjectSpawner.Instance.CanSpawn(objectName))
+            {
+                Debug.Log($"[ObjectSpawner] Limit reached for {objectName}. Skipping spawn.");
+                return false;
+            }
+
             EnsureFacingCamera();
 
             var facePosition = m_CameraToFace.transform.position;
             var forward = facePosition - spawnPoint;
             BurstMathUtility.ProjectOnPlane(forward, spawnNormal, out var projectedForward);
-            newObject.transform.rotation = Quaternion.LookRotation(projectedForward, spawnNormal);
+            Quaternion spawnRotation = Quaternion.LookRotation(projectedForward, spawnNormal);
 
             if (m_ApplyRandomAngleAtSpawn)
             {
-                var randomRotation = Random.Range(-m_SpawnAngleRange, m_SpawnAngleRange);
-                newObject.transform.Rotate(Vector3.up, randomRotation);
+                var randomRotation = UnityEngine.Random.Range(-m_SpawnAngleRange, m_SpawnAngleRange);
+                spawnRotation *= Quaternion.Euler(0f, randomRotation, 0f);
             }
+
+            if (!LimitedObjectSpawner.Instance.TrySpawn(objectName, spawnPoint, spawnRotation, out var newObject))
+                return false;
+
+            if (m_SpawnAsChildren)
+                newObject.transform.parent = transform;
 
             if (m_SpawnVisualizationPrefab != null)
             {
@@ -232,6 +244,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
             objectSpawned?.Invoke(newObject);
             return true;
+
         }
     }
 }
