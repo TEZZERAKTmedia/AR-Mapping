@@ -38,8 +38,10 @@ public class YoloInterface : MonoBehaviour
             transformation = XRCpuImage.Transformation.MirrorX
         };
 
-        var rawTextureData = new byte[conversionParams.outputDimensions.x * conversionParams.outputDimensions.y * 3];
+        int dataSize = conversionParams.outputDimensions.x * conversionParams.outputDimensions.y * 3;
+        var rawTextureData = new Unity.Collections.NativeArray<byte>(dataSize, Unity.Collections.Allocator.Temp);
         image.Convert(conversionParams, rawTextureData);
+
         image.Dispose();
 
         if (cameraTexture == null)
