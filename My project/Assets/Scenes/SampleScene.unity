@@ -4639,18 +4639,6 @@ MonoBehaviour:
   m_TextureCoordinates: 0
   m_Colors: 0
   m_ConcurrentQueueSize: 4
---- !u!114 &1688994652 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2512387470528047718, guid: 48cb3fb68c91eb94999fd99957eb0cae,
-    type: 3}
-  m_PrefabInstance: {fileID: 331264285}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1756045394
 GameObject:
   m_ObjectHideFlags: 0
@@ -5102,8 +5090,8 @@ MonoBehaviour:
   yoloModelAsset: {fileID: 5022602860645237092, guid: 6579d9f548c144d9d80e8ea90b115dc0,
     type: 3}
   arCameraManager: {fileID: 331264288}
-  detectionPrefabs: []
   skipFrames: 5
+  confidenceThreshold: 0.6
 --- !u!4 &1920760380
 Transform:
   m_ObjectHideFlags: 0
@@ -5148,8 +5136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cadda6543294ed58dc395a97e35df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yoloInterface: {fileID: 1920760379}
-  raycastManager: {fileID: 1688994652}
+  doorPrefab: {fileID: 6237872139730300172, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+    type: 3}
+  yolo: {fileID: 1920760379}
 --- !u!4 &1935575280
 Transform:
   m_ObjectHideFlags: 0
@@ -6338,6 +6327,74 @@ MonoBehaviour:
       type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
+--- !u!1001 &476070560383709051
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1014548588898306782, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014548588898306782, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.000011434779
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014548588898306782, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00075435214
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014548588898306782, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99988514
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014548588898306782, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.015156
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014548588898306782, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014548588898306782, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014548588898306782, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.737
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014548588898306782, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014548588898306782, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237872139730300172, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
+        type: 3}
+      propertyPath: m_Name
+      value: Doorway
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a84ad56b8f23f47fc9cbea5dc3c26951, type: 3}
 --- !u!1001 &891726464977617767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6849,3 +6906,4 @@ SceneRoots:
   - {fileID: 426727008}
   - {fileID: 1920760380}
   - {fileID: 1935575280}
+  - {fileID: 476070560383709051}
