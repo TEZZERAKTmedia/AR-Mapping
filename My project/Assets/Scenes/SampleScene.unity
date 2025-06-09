@@ -581,6 +581,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4966719baa26e4b0e8231a24d9bd491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &331264289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2512387470528047718, guid: 48cb3fb68c91eb94999fd99957eb0cae,
+    type: 3}
+  m_PrefabInstance: {fileID: 331264285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &332374253
 GameObject:
   m_ObjectHideFlags: 0
@@ -5139,6 +5151,8 @@ MonoBehaviour:
   doorPrefab: {fileID: 6237872139730300172, guid: a84ad56b8f23f47fc9cbea5dc3c26951,
     type: 3}
   yolo: {fileID: 1920760379}
+  raycastManager: {fileID: 331264289}
+  planeManager: {fileID: 151853166}
 --- !u!4 &1935575280
 Transform:
   m_ObjectHideFlags: 0

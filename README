@@ -10,7 +10,7 @@ This repository contains a Unity project using **AR Foundation**, tested on **iP
 
 [AR Foundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@latest) is a framework developed by Unity Technologies to allow cross-platform development of augmented reality experiences. It supports both ARKit (iOS) and ARCore (Android), letting you write once and deploy to both platforms (with some platform-specific configuration).
 
----
+
 
 ## 📱 Supported Platforms
 
@@ -62,6 +62,67 @@ Make sure the following Unity packages are installed via **Package Manager**:
 
 ---
 
+
+---
+## 🧠 YOLOv5 → Unity Export Tool
+
+This Unity project uses a lightweight YOLOv5 object detection model (e.g. for detecting doors in AR).  
+To build and convert the trained `.pt` weights into `.onnx` format for Unity Barracuda:
+
+From the root project directory (where this README lives), run:
+
+```bash
+bash yolov5/build_and_export_unity.sh
+
+🎯 Training a Custom YOLOv5 Model
+
+To train your own object detector (e.g., for detecting doors):
+
+📁 1. Prepare Your Dataset
+Your dataset should follow the standard YOLO structure:
+
+dataset/
+├── images/
+│   ├── train/
+│   └── val/
+├── labels/
+│   ├── train/
+│   └── val/
+└── data.yaml
+Sample data.yaml:
+
+train: ../images/train
+val: ../images/val
+nc: 1
+names: ['door']
+You can generate this format using Roboflow or manually.
+🧠 2. Train the Model
+From the yolov5/ folder, run:
+
+python train.py --img 320 --batch 16 --epochs 100 --data data.yaml --weights yolov5s.pt --name doors_yolov5s
+After training, your weights will be saved at:
+
+yolov5/runs/train/doors_yolov5s/weights/best.pt
+🔁 3. Export for Unity
+From the root directory (3D UI/), simply run:
+
+bash yolov5/build_and_export_unity.sh
+The converted model will be available for use in Unity as a Barracuda NNModel.
+
+📚 Resources
+
+YOLOv5: https://github.com/ultralytics/yolov5
+Training Custom Data: YOLOv5 Wiki
+Roboflow (Optional): https://roboflow.com/
+Unity Barracuda Docs: https://docs.unity3d.com/Packages/com.unity.barracuda
+🛠 Unity Requirements
+
+Unity 2022+ with AR Foundation + XR Plugin
+Barracuda (ONNX inference runtime)
+Prefabs scaled to real-world sizes (e.g. 1m wide door)
+ARRaycastManager + ARPlaneManager properly configured in scene
+
+---
 ## 🚫 .gitignore Highlights
 
 We’ve excluded the following to reduce bloat and avoid committing platform-specific or system-generated files:
