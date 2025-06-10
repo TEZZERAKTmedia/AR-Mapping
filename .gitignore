@@ -46,7 +46,8 @@ Builds_Android/
 .collab/
 
 # iOS
-My project/mobile/Libraries/libiPhone-lib.a
+*libiPhone-lib.a
+
 
 
 # Android/Gradle
@@ -65,3 +66,4 @@ memoryCaptures/
 # Packed packages and caches
 Library/Bee/
 Library/PackageCache/
+SAWYER-APP/Libraries/*.a

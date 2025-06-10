@@ -1,6 +1,0 @@
-train: ../datasets/doors/train/images
-val: ../datasets/doors/valid/images
-test: ../datasets/doors/test/images
-
-nc: 1
-names: ['Doors']
