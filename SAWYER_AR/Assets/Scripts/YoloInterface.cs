@@ -28,96 +28,150 @@ public class YoloInterface : MonoBehaviour
 
     void Start()
     {
-        // Load and prepare the Barracuda model
-        runtimeModel = ModelLoader.Load(yoloModelAsset);
-        worker = WorkerFactory.CreateWorker(WorkerFactory.Type.Auto, runtimeModel);
-
-        // Subscribe to camera frames
-        arCameraManager.frameReceived += OnCameraFrameReceived;
+        Debug.Log("[YOLO] Initializing model...");
+        try
+        {
+            runtimeModel = ModelLoader.Load(yoloModelAsset);
+            worker = WorkerFactory.CreateWorker(WorkerFactory.Type.Auto, runtimeModel);
+            arCameraManager.frameReceived += OnCameraFrameReceived;
+            Debug.Log("[YOLO] Model loaded and worker created successfully.");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[YOLO] Failed to initialize model: {e.Message}");
+        }
     }
 
     void OnDestroy()
     {
+        Debug.Log("[YOLO] Cleaning up model worker and unsubscribing from camera frames...");
         arCameraManager.frameReceived -= OnCameraFrameReceived;
-        worker.Dispose();
+        worker?.Dispose();
     }
 
     void OnCameraFrameReceived(ARCameraFrameEventArgs args)
     {
-        if (++frameCount % skipFrames != 0) return;
+        frameCount++;
+        if (frameCount % skipFrames != 0) return;
         frameCount = 0;
 
+        Debug.Log("[YOLO] Acquiring CPU image...");
         if (!arCameraManager.TryAcquireLatestCpuImage(out XRCpuImage image))
+        {
+            Debug.LogWarning("[YOLO] Failed to acquire camera image.");
             return;
+        }
 
-        // Convert to a small RGB24 Texture2D
         var conv = new XRCpuImage.ConversionParams
         {
-            inputRect       = new RectInt(0, 0, image.width, image.height),
-            outputDimensions = new Vector2Int(320, 320),
-            outputFormat     = TextureFormat.RGB24,
-            transformation   = XRCpuImage.Transformation.MirrorX
+            inputRect = new RectInt(0, 0, image.width, image.height),
+            outputDimensions = new Vector2Int(640, 640),
+            outputFormat = TextureFormat.RGB24,
+            transformation = XRCpuImage.Transformation.MirrorX
         };
+
         int dataSize = conv.outputDimensions.x * conv.outputDimensions.y * 3;
         var rawData = new NativeArray<byte>(dataSize, Allocator.Temp);
-        image.Convert(conv, rawData);
+
+        try
+        {
+            image.Convert(conv, rawData);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[YOLO] Failed image conversion: {e.Message}");
+            rawData.Dispose();
+            image.Dispose();
+            return;
+        }
+
         image.Dispose();
 
         if (cameraTexture == null)
+        {
             cameraTexture = new Texture2D(conv.outputDimensions.x, conv.outputDimensions.y, conv.outputFormat, false);
+            Debug.Log("[YOLO] Camera texture created.");
+        }
 
         cameraTexture.LoadRawTextureData(rawData);
         cameraTexture.Apply();
         rawData.Dispose();
 
+        Debug.Log("[YOLO] Running model on current frame...");
         RunModel(cameraTexture);
     }
 
     void RunModel(Texture2D tex)
     {
         using var input = new Tensor(tex, 3);
-        worker.Execute(input);
-        using var output = worker.PeekOutput();
-        ParseYOLOOutput(output);
+        try
+        {
+            worker.Execute(input);
+            using var output = worker.PeekOutput();
+            Debug.Log("[YOLO] Output tensor received. Beginning parse...");
+            ParseYOLOOutput(output);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"[YOLO] Model execution error: {e.Message}");
+        }
     }
 
     void ParseYOLOOutput(Tensor output)
     {
-        // Assuming output shape: [1,1,channels,detCount]
-        int detCount = output.shape.channels;
-        for (int i = 0; i < detCount; i++)
+        int rows = output.shape.height;    // typically 25200
+        int cols = output.shape.width;     // typically 6
+
+        Debug.Log($"[YOLO] Output tensor shape: ({rows}, {cols})");
+
+        if (cols != 6)
         {
-            float conf = output[0, 0, 4, i];
-            if (conf < confidenceThreshold)
+            Debug.LogError($"[YOLO] Unexpected output shape: expected (25200, 6), got ({rows}, {cols})");
+            return;
+        }
+
+        bool found = false;
+
+        for (int i = 0; i < rows; i++)
+        {
+            float x = output[i, 0] / cameraTexture.width;
+            float y = output[i, 1] / cameraTexture.height;
+            float w = output[i, 2] / cameraTexture.width;
+            float h = output[i, 3] / cameraTexture.height;
+
+            float conf = output[i, 4];
+            float classScore = output[i, 5];
+            float score = conf * classScore;
+
+            Debug.Log($"[YOLO] Normalized: x={x:F2}, y={y:F2}, w={w:F2}, h={h:F2}, score={score:F2}");
+
+            if (score < confidenceThreshold)
                 continue;
 
-            int classId = Mathf.RoundToInt(output[0, 0, 5, i]);
-            if (LookupLabel(classId) != "door")
+            if (LookupLabel(0) != "door")
                 continue;
 
-            // normalized bbox center & size
-            float cx = output[0, 0, 0, i];
-            float cy = output[0, 0, 1, i];
-            float w  = output[0, 0, 2, i];
-            float h  = output[0, 0, 3, i];
-
-            // convert to screen-pixel Rect
             Rect screenRect = new Rect(
-                (cx - w/2f) * Screen.width,
-                (cy - h/2f) * Screen.height,
+                (x - w / 2f) * Screen.width,
+                (y - h / 2f) * Screen.height,
                 w * Screen.width,
                 h * Screen.height
             );
 
+            Debug.Log($"[YOLO] ✅ Door detected at {screenRect}, score={score:F2}");
             OnDoorDetected?.Invoke(screenRect);
-            break; // only handle the first door per frame
+            break;
+
+        }
+
+        if (!found)
+        {
+            Debug.Log("[YOLO] ❌ No valid door detections this frame.");
         }
     }
 
-    // Replace this with your own mapping from classId → string label
     string LookupLabel(int classId)
     {
-        // e.g. 0 = door, 1 = window, etc.
         return classId == 0 ? "door" : "";
     }
 }
