@@ -95,6 +95,16 @@ extern void PrefabButtonSpawner__ctor_m3228D138A68CE7087914AF8C03B514D24A08ABA5 
 extern void PrefabButtonSpawner__cctor_mB092B6DE6E2FEB75A41292059DF90D3E479844DB (void);
 extern void ToggleCoachingUI_ToggleUI_m8E285F765CDFC2041DAADD25F3A30554AFC0B4ED (void);
 extern void ToggleCoachingUI__ctor_m6EBA8B9F31687EC895111868744E2331172CD069 (void);
+extern void DoorOverlay_Update_m02ADB585D35F274FB2E53999A04FCBD4A09B24A7 (void);
+extern void DoorOverlay__ctor_m06BB810D71FDDE7F03577F864CCE72D67E216850 (void);
+extern void DoorTrackerManager_TrackDoor_m7B3A832A2065E08B6C33957F6DA50D75B2529C19 (void);
+extern void DoorTrackerManager__ctor_m0174416037959F01F6DC3CE49FF3762FFC4D1A33 (void);
+extern void DoorTrackerManager__cctor_mD154AA7706D0B51FD61D56DB1FE0160EA70485A1 (void);
+extern void YoloDoorDetector_Start_m80791D3E148B3C33CB7F8F55DBBB565E7E010A87 (void);
+extern void YoloDoorDetector_OnDestroy_m375DB6FD8BAB459B3E1126783AF3432003E6D1F4 (void);
+extern void YoloDoorDetector_OnCameraFrame_mFD378A8C44DF8695671B5C650E34675FE9CC3F7A (void);
+extern void YoloDoorDetector_ParseYOLO_m255B4C74FD253839BD69F6D78C9D97288412F463 (void);
+extern void YoloDoorDetector__ctor_m395CA81852123205BE44934C7E23B84DC613B448 (void);
 extern void DoorSpawner_OnEnable_m32A55C861555AA7BBB68674F40129BAF6833A3BD (void);
 extern void DoorSpawner_OnDisable_mE985D1BAD8B542E33BECFA4FFC05F1391E6DCBE9 (void);
 extern void DoorSpawner_PlaceDoor_mAFF96425F4EB0EFA9BFAC4D62F21D0F9797C8F4D (void);
@@ -133,7 +143,7 @@ extern void ARFeatheredPlaneMeshVisualizerCompanion_OnDestroy_m64B601920050D7584
 extern void ARFeatheredPlaneMeshVisualizerCompanion_Update_m541F58E1FC27F7D775FE47F2C1B1A04710BC4A27 (void);
 extern void ARFeatheredPlaneMeshVisualizerCompanion_set_visualizeSurfaces_m7A7F198C97A315F6F7F58F0BDA5269863F098D68 (void);
 extern void ARFeatheredPlaneMeshVisualizerCompanion__ctor_m3871FAD2A1135D983A9B5ADCD604F22949DE985C (void);
-static Il2CppMethodPointer s_methodPointers[126] = 
+static Il2CppMethodPointer s_methodPointers[136] = 
 {
 	ARTemplateMenuManager_get_createButton_mF094F0AC7A89F9C92C57D8517519509825A145E4,
 	ARTemplateMenuManager_set_createButton_mD65905DD827D87E747095FDAF9CE38892C4340EB,
@@ -223,6 +233,16 @@ static Il2CppMethodPointer s_methodPointers[126] =
 	PrefabButtonSpawner__cctor_mB092B6DE6E2FEB75A41292059DF90D3E479844DB,
 	ToggleCoachingUI_ToggleUI_m8E285F765CDFC2041DAADD25F3A30554AFC0B4ED,
 	ToggleCoachingUI__ctor_m6EBA8B9F31687EC895111868744E2331172CD069,
+	DoorOverlay_Update_m02ADB585D35F274FB2E53999A04FCBD4A09B24A7,
+	DoorOverlay__ctor_m06BB810D71FDDE7F03577F864CCE72D67E216850,
+	DoorTrackerManager_TrackDoor_m7B3A832A2065E08B6C33957F6DA50D75B2529C19,
+	DoorTrackerManager__ctor_m0174416037959F01F6DC3CE49FF3762FFC4D1A33,
+	DoorTrackerManager__cctor_mD154AA7706D0B51FD61D56DB1FE0160EA70485A1,
+	YoloDoorDetector_Start_m80791D3E148B3C33CB7F8F55DBBB565E7E010A87,
+	YoloDoorDetector_OnDestroy_m375DB6FD8BAB459B3E1126783AF3432003E6D1F4,
+	YoloDoorDetector_OnCameraFrame_mFD378A8C44DF8695671B5C650E34675FE9CC3F7A,
+	YoloDoorDetector_ParseYOLO_m255B4C74FD253839BD69F6D78C9D97288412F463,
+	YoloDoorDetector__ctor_m395CA81852123205BE44934C7E23B84DC613B448,
 	DoorSpawner_OnEnable_m32A55C861555AA7BBB68674F40129BAF6833A3BD,
 	DoorSpawner_OnDisable_mE985D1BAD8B542E33BECFA4FFC05F1391E6DCBE9,
 	DoorSpawner_PlaceDoor_mAFF96425F4EB0EFA9BFAC4D62F21D0F9797C8F4D,
@@ -267,7 +287,7 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[1] =
 {
 	{ 0x06000035, Goal__ctor_m1545B6E40E910D8B0648797BF96520F84FF2FF40_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[126] = 
+static const int32_t s_InvokerIndices[136] = 
 {
 	15220,
 	11703,
@@ -360,6 +380,16 @@ static const int32_t s_InvokerIndices[126] =
 	15417,
 	15417,
 	11746,
+	15417,
+	26980,
+	15417,
+	15417,
+	11447,
+	11703,
+	15417,
+	15417,
+	15417,
+	11746,
 	10398,
 	10397,
 	5929,
@@ -400,7 +430,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	126,
+	136,
 	s_methodPointers,
 	1,
 	s_adjustorThunks,
