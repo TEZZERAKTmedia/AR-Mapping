@@ -3050,6 +3050,18 @@ struct HashCode64_1_t25B99E9F7F998CC07CCA13124E03920779BFF803
 		uint8_t HashCode64_1_t9A0E69580DAA2D2CCB4BA575308077FCCE5F2E6E__padding[1];
 	};
 };
+struct AttachmentIndexArray_tDC550BA2CD14AFB3B5545B02331C26903ADA90B5 
+{
+	int32_t ___a0;
+	int32_t ___a1;
+	int32_t ___a2;
+	int32_t ___a3;
+	int32_t ___a4;
+	int32_t ___a5;
+	int32_t ___a6;
+	int32_t ___a7;
+	int32_t ___activeAttachments;
+};
 struct Boolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22 
 {
 	bool ___m_value;
@@ -3215,10 +3227,19 @@ struct SharedArrayTensorData_t9798CDD88EC6AC1723F7E48E736563946889A5CB  : public
 	int32_t ___m_Offset;
 	int32_t ___m_Count;
 };
+struct SubviewOcclusionTest_t4C10094E5EF2C745723FEFE4E5749FBB75CAA026 
+{
+	int32_t ___cullingSplitIndex;
+	int32_t ___occluderSubviewIndex;
+};
 struct TrackableId_t49EAE8AA4B9584E314518723DC22B66496D47AD7 
 {
 	uint64_t ___m_SubId1;
 	uint64_t ___m_SubId2;
+};
+struct UInt16_tF4C148C876015C212FD72652D0B6ED8CC247A455 
+{
+	uint16_t ___m_value;
 };
 struct UInt32_t1833D51FFA667B18A5AA4B8D34DE284F8495D29B 
 {
@@ -4143,6 +4164,10 @@ struct ScaleMode_t16AD656758EE54C56B3DA34FE4F2033C9C2EE13D
 {
 	int32_t ___value__;
 };
+struct SubPassFlags_tB4066DF82B36110B6163EB5C3A48F49FD4DD3AE5 
+{
+	int32_t ___value__;
+};
 struct Supported_t78D339E736374B7F1336F01A352E7DB556F89106 
 {
 	int32_t ___value__;
@@ -4162,6 +4187,12 @@ struct TrackableType_t8B4D3C5D68805ECC40B1C8CA6C7174184BB2C110
 struct TrackingState_t5487241B6888BB15D8448EBBC640835A011DBBC2 
 {
 	int32_t ___value__;
+};
+struct TransformUpdatePacket_t056014168D7AE17359B1BD85E70A6E1B43C3AB18 
+{
+	float4_t89D9A294E7A79BD81BFBDD18654508532958555E ___localToWorld0;
+	float4_t89D9A294E7A79BD81BFBDD18654508532958555E ___localToWorld1;
+	float4_t89D9A294E7A79BD81BFBDD18654508532958555E ___localToWorld2;
 };
 struct UnsafeArrayTensorData_t05ED3A7DD4559209DA9E727B4327C7FC57FCF543  : public SharedArrayTensorData_t9798CDD88EC6AC1723F7E48E736563946889A5CB
 {
@@ -5091,6 +5122,12 @@ struct GraphicsFence_t199180163AEDE0C1BE868F8E1314A47610B1FABB
 	intptr_t ___m_Ptr;
 	int32_t ___m_Version;
 	int32_t ___m_FenceType;
+};
+struct SubPassDescriptor_t912FE0FF4C99BF293A1E4442353C35B2BB8997A9 
+{
+	AttachmentIndexArray_tDC550BA2CD14AFB3B5545B02331C26903ADA90B5 ___inputs;
+	AttachmentIndexArray_tDC550BA2CD14AFB3B5545B02331C26903ADA90B5 ___colorOutputs;
+	int32_t ___flags;
 };
 struct SystemException_tCC48D868298F4C0705279823E34B00F4FBDB7295  : public Exception_t
 {
@@ -7052,6 +7089,11 @@ struct IntPtr_t_StaticFields
 {
 	intptr_t ___Zero;
 };
+struct TrackableId_t49EAE8AA4B9584E314518723DC22B66496D47AD7_StaticFields
+{
+	Regex_tE773142C2BE45C5D362B0F815AFF831707A51772* ___s_TrackableIdRegex;
+	TrackableId_t49EAE8AA4B9584E314518723DC22B66496D47AD7 ___s_InvalidId;
+};
 struct Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_StaticFields
 {
 	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___zeroVector;
@@ -7458,13 +7500,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisHardSigmoidJob_Full_Float_t82CCA14FE255FED4535DCF0EAB9D98F8788A080C_m32B4868B8B189DA3D2503ED1BE3EEBF71174DD5D_gshared (HardSigmoidJob_Full_Float_t82CCA14FE255FED4535DCF0EAB9D98F8788A080C ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisHardSigmoidJob_Full_Half_t12FE5B5EF6F424D0034AB4E52B3972A53C1DCAE1_m96A964B9ECFB32E67196A8CF4EE76F0CFD868F7A_gshared (HardSigmoidJob_Full_Half_t12FE5B5EF6F424D0034AB4E52B3972A53C1DCAE1 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisIm2ColSliceJob_t9F370C5E51B4C20377E157C1065FF7E9D23B0BA4_m87CAF8D8C4E5011920A31EA38505AABDB9A462E5_gshared (Im2ColSliceJob_t9F370C5E51B4C20377E157C1065FF7E9D23B0BA4 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisLeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187_m835A179430BAB2C3E09E42DF74A863705CFE659B_gshared (LeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisLeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72_mA1219479B4CBE74A2155D11A0B2C04FF0B773AB5_gshared (LeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisLogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83_mE02342F2E0F09DCCC7A4837099E5C9C49571E7D7_gshared (LogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisLogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854_m75A19E21D8C6F004D936A2C21FC5D081B007872A_gshared (LogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisMaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED_m1874D807CEF3AB2E5CBB85537A26457310138B13_gshared (MaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisMaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582_m75DA074A06E9FCC3C52AD77F06D72688229F4D52_gshared (MaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisNegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60_m2B182C7DF0EBFC9A1A72B659803ED4F7A25710FE_gshared (NegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method) ;
 
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_Memmove_mAA31A45BF1B1FA6490F0913B7FB59537767E5EF3 (uint8_t* ___0_dest, uint8_t* ___1_src, uint32_t ___2_len, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57 (RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B ___0_handle, const RuntimeMethod* method) ;
@@ -8733,47 +8768,165 @@ inline JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtens
 {
 	return ((  JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 (*) (Im2ColSliceJob_t9F370C5E51B4C20377E157C1065FF7E9D23B0BA4, int32_t, int32_t, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08, const RuntimeMethod*))IJobParallelForExtensions_Schedule_TisIm2ColSliceJob_t9F370C5E51B4C20377E157C1065FF7E9D23B0BA4_m87CAF8D8C4E5011920A31EA38505AABDB9A462E5_gshared)(___0_jobData, ___1_arrayLength, ___2_innerloopBatchCount, ___3_dependsOn, method);
 }
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LeakyReluJob_Full_Float_set_X_mF639F6C484EAD6C5AB2F92DBB752E9F966B3E4BC_inline (LeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LeakyReluJob_Full_Float_set_O_m8364DE299C7B237E22FEAFA6DB44B4573FAA7006_inline (LeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) ;
-inline JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisLeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187_m835A179430BAB2C3E09E42DF74A863705CFE659B (LeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_Memmove_TisSubPassDescriptor_t912FE0FF4C99BF293A1E4442353C35B2BB8997A9_mF6F7C1814773F69C958C41B232379EBD4896E28F_gshared (SubPassDescriptor_t912FE0FF4C99BF293A1E4442353C35B2BB8997A9* ___0_destination, SubPassDescriptor_t912FE0FF4C99BF293A1E4442353C35B2BB8997A9* ___1_source, uint64_t ___2_elementCount, const RuntimeMethod* method) 
 {
-	return ((  JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 (*) (LeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187, int32_t, int32_t, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08, const RuntimeMethod*))IJobParallelForExtensions_Schedule_TisLeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187_m835A179430BAB2C3E09E42DF74A863705CFE659B_gshared)(___0_jobData, ___1_arrayLength, ___2_innerloopBatchCount, ___3_dependsOn, method);
+	uint8_t* V_0 = NULL;
+	uint8_t* V_1 = NULL;
+	uint8_t* V_2 = NULL;
+	uint8_t* V_3 = NULL;
+	RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B V_4;
+	memset((&V_4), 0, sizeof(V_4));
+	{
+	}
+	{
+		SubPassDescriptor_t912FE0FF4C99BF293A1E4442353C35B2BB8997A9* L_0 = ___0_destination;
+		uint8_t* L_1;
+		L_1 = il2cpp_unsafe_as_ref<uint8_t>(L_0);
+		V_1 = L_1;
+		uint8_t* L_2 = V_1;
+		SubPassDescriptor_t912FE0FF4C99BF293A1E4442353C35B2BB8997A9* L_3 = ___1_source;
+		uint8_t* L_4;
+		L_4 = il2cpp_unsafe_as_ref<uint8_t>(L_3);
+		V_2 = L_4;
+		uint8_t* L_5 = V_2;
+		V_0 = (uint8_t*)((uintptr_t)L_5);
+		uint8_t* L_6 = V_0;
+		uint64_t L_7 = ___2_elementCount;
+		int32_t L_8;
+		L_8 = il2cpp_unsafe_sizeof<SubPassDescriptor_t912FE0FF4C99BF293A1E4442353C35B2BB8997A9>();
+		Buffer_Memmove_mAA31A45BF1B1FA6490F0913B7FB59537767E5EF3((uint8_t*)((uintptr_t)L_2), L_6, (uint32_t)((int32_t)il2cpp_codegen_multiply(((int32_t)(uint32_t)L_7), L_8)), NULL);
+		V_1 = (uint8_t*)((uintptr_t)0);
+		V_2 = (uint8_t*)((uintptr_t)0);
+		return;
+	}
 }
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LeakyReluJob_Full_Half_set_X_mA6A8FA49902D359230429D819AD2F99613ECFE12_inline (LeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LeakyReluJob_Full_Half_set_O_m7AB0A12AAB57F718D71DC66EDF82308AA97BAD0F_inline (LeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) ;
-inline JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisLeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72_mA1219479B4CBE74A2155D11A0B2C04FF0B773AB5 (LeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_Memmove_TisSubviewOcclusionTest_t4C10094E5EF2C745723FEFE4E5749FBB75CAA026_m32A23337029ABE0E84B9CF615FBDADE927B6BC4F_gshared (SubviewOcclusionTest_t4C10094E5EF2C745723FEFE4E5749FBB75CAA026* ___0_destination, SubviewOcclusionTest_t4C10094E5EF2C745723FEFE4E5749FBB75CAA026* ___1_source, uint64_t ___2_elementCount, const RuntimeMethod* method) 
 {
-	return ((  JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 (*) (LeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72, int32_t, int32_t, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08, const RuntimeMethod*))IJobParallelForExtensions_Schedule_TisLeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72_mA1219479B4CBE74A2155D11A0B2C04FF0B773AB5_gshared)(___0_jobData, ___1_arrayLength, ___2_innerloopBatchCount, ___3_dependsOn, method);
+	uint8_t* V_0 = NULL;
+	uint8_t* V_1 = NULL;
+	uint8_t* V_2 = NULL;
+	uint8_t* V_3 = NULL;
+	RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B V_4;
+	memset((&V_4), 0, sizeof(V_4));
+	{
+	}
+	{
+		SubviewOcclusionTest_t4C10094E5EF2C745723FEFE4E5749FBB75CAA026* L_0 = ___0_destination;
+		uint8_t* L_1;
+		L_1 = il2cpp_unsafe_as_ref<uint8_t>(L_0);
+		V_1 = L_1;
+		uint8_t* L_2 = V_1;
+		SubviewOcclusionTest_t4C10094E5EF2C745723FEFE4E5749FBB75CAA026* L_3 = ___1_source;
+		uint8_t* L_4;
+		L_4 = il2cpp_unsafe_as_ref<uint8_t>(L_3);
+		V_2 = L_4;
+		uint8_t* L_5 = V_2;
+		V_0 = (uint8_t*)((uintptr_t)L_5);
+		uint8_t* L_6 = V_0;
+		uint64_t L_7 = ___2_elementCount;
+		int32_t L_8;
+		L_8 = il2cpp_unsafe_sizeof<SubviewOcclusionTest_t4C10094E5EF2C745723FEFE4E5749FBB75CAA026>();
+		Buffer_Memmove_mAA31A45BF1B1FA6490F0913B7FB59537767E5EF3((uint8_t*)((uintptr_t)L_2), L_6, (uint32_t)((int32_t)il2cpp_codegen_multiply(((int32_t)(uint32_t)L_7), L_8)), NULL);
+		V_1 = (uint8_t*)((uintptr_t)0);
+		V_2 = (uint8_t*)((uintptr_t)0);
+		return;
+	}
 }
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LogJob_Full_Float_set_X_m630D9B3145C8154EC8C6AB9D038A4460EA282365_inline (LogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LogJob_Full_Float_set_O_m3DAAC24A4316E236179C576484ABF40053AE40BE_inline (LogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) ;
-inline JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisLogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83_mE02342F2E0F09DCCC7A4837099E5C9C49571E7D7 (LogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_Memmove_TisTrackableId_t49EAE8AA4B9584E314518723DC22B66496D47AD7_mCA110D5D1FC4E43E34CB559C0AA44240BACD2C45_gshared (TrackableId_t49EAE8AA4B9584E314518723DC22B66496D47AD7* ___0_destination, TrackableId_t49EAE8AA4B9584E314518723DC22B66496D47AD7* ___1_source, uint64_t ___2_elementCount, const RuntimeMethod* method) 
 {
-	return ((  JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 (*) (LogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83, int32_t, int32_t, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08, const RuntimeMethod*))IJobParallelForExtensions_Schedule_TisLogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83_mE02342F2E0F09DCCC7A4837099E5C9C49571E7D7_gshared)(___0_jobData, ___1_arrayLength, ___2_innerloopBatchCount, ___3_dependsOn, method);
+	uint8_t* V_0 = NULL;
+	uint8_t* V_1 = NULL;
+	uint8_t* V_2 = NULL;
+	uint8_t* V_3 = NULL;
+	RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B V_4;
+	memset((&V_4), 0, sizeof(V_4));
+	{
+	}
+	{
+		TrackableId_t49EAE8AA4B9584E314518723DC22B66496D47AD7* L_0 = ___0_destination;
+		uint8_t* L_1;
+		L_1 = il2cpp_unsafe_as_ref<uint8_t>(L_0);
+		V_1 = L_1;
+		uint8_t* L_2 = V_1;
+		TrackableId_t49EAE8AA4B9584E314518723DC22B66496D47AD7* L_3 = ___1_source;
+		uint8_t* L_4;
+		L_4 = il2cpp_unsafe_as_ref<uint8_t>(L_3);
+		V_2 = L_4;
+		uint8_t* L_5 = V_2;
+		V_0 = (uint8_t*)((uintptr_t)L_5);
+		uint8_t* L_6 = V_0;
+		uint64_t L_7 = ___2_elementCount;
+		int32_t L_8;
+		L_8 = il2cpp_unsafe_sizeof<TrackableId_t49EAE8AA4B9584E314518723DC22B66496D47AD7>();
+		Buffer_Memmove_mAA31A45BF1B1FA6490F0913B7FB59537767E5EF3((uint8_t*)((uintptr_t)L_2), L_6, (uint32_t)((int32_t)il2cpp_codegen_multiply(((int32_t)(uint32_t)L_7), L_8)), NULL);
+		V_1 = (uint8_t*)((uintptr_t)0);
+		V_2 = (uint8_t*)((uintptr_t)0);
+		return;
+	}
 }
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LogJob_Full_Half_set_X_m123A5B57F25CB2A67C43F71250078C7FD9526CC5_inline (LogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LogJob_Full_Half_set_O_m229B1956F393DCA60AC3F796DB255B8F47031986_inline (LogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) ;
-inline JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisLogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854_m75A19E21D8C6F004D936A2C21FC5D081B007872A (LogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_Memmove_TisTransformUpdatePacket_t056014168D7AE17359B1BD85E70A6E1B43C3AB18_mB9203CCBA27231FC655442726FF84EF63FA9164C_gshared (TransformUpdatePacket_t056014168D7AE17359B1BD85E70A6E1B43C3AB18* ___0_destination, TransformUpdatePacket_t056014168D7AE17359B1BD85E70A6E1B43C3AB18* ___1_source, uint64_t ___2_elementCount, const RuntimeMethod* method) 
 {
-	return ((  JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 (*) (LogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854, int32_t, int32_t, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08, const RuntimeMethod*))IJobParallelForExtensions_Schedule_TisLogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854_m75A19E21D8C6F004D936A2C21FC5D081B007872A_gshared)(___0_jobData, ___1_arrayLength, ___2_innerloopBatchCount, ___3_dependsOn, method);
+	uint8_t* V_0 = NULL;
+	uint8_t* V_1 = NULL;
+	uint8_t* V_2 = NULL;
+	uint8_t* V_3 = NULL;
+	RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B V_4;
+	memset((&V_4), 0, sizeof(V_4));
+	{
+	}
+	{
+		TransformUpdatePacket_t056014168D7AE17359B1BD85E70A6E1B43C3AB18* L_0 = ___0_destination;
+		uint8_t* L_1;
+		L_1 = il2cpp_unsafe_as_ref<uint8_t>(L_0);
+		V_1 = L_1;
+		uint8_t* L_2 = V_1;
+		TransformUpdatePacket_t056014168D7AE17359B1BD85E70A6E1B43C3AB18* L_3 = ___1_source;
+		uint8_t* L_4;
+		L_4 = il2cpp_unsafe_as_ref<uint8_t>(L_3);
+		V_2 = L_4;
+		uint8_t* L_5 = V_2;
+		V_0 = (uint8_t*)((uintptr_t)L_5);
+		uint8_t* L_6 = V_0;
+		uint64_t L_7 = ___2_elementCount;
+		int32_t L_8;
+		L_8 = il2cpp_unsafe_sizeof<TransformUpdatePacket_t056014168D7AE17359B1BD85E70A6E1B43C3AB18>();
+		Buffer_Memmove_mAA31A45BF1B1FA6490F0913B7FB59537767E5EF3((uint8_t*)((uintptr_t)L_2), L_6, (uint32_t)((int32_t)il2cpp_codegen_multiply(((int32_t)(uint32_t)L_7), L_8)), NULL);
+		V_1 = (uint8_t*)((uintptr_t)0);
+		V_2 = (uint8_t*)((uintptr_t)0);
+		return;
+	}
 }
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void MaxPool2DJob_Full_Float_set_X_m9FA829AAB48D404D58AAECA6DCE7B28D0B5E16E3_inline (MaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void MaxPool2DJob_Full_Float_set_O_mFFA1B856E66A305780B402F6024FEF4864A483AA_inline (MaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) ;
-inline JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisMaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED_m1874D807CEF3AB2E5CBB85537A26457310138B13 (MaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_Memmove_TisUInt16_tF4C148C876015C212FD72652D0B6ED8CC247A455_mE48DFFFA4D52B03F4ACA304FD485E78F4BFF0E42_gshared (uint16_t* ___0_destination, uint16_t* ___1_source, uint64_t ___2_elementCount, const RuntimeMethod* method) 
 {
-	return ((  JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 (*) (MaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED, int32_t, int32_t, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08, const RuntimeMethod*))IJobParallelForExtensions_Schedule_TisMaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED_m1874D807CEF3AB2E5CBB85537A26457310138B13_gshared)(___0_jobData, ___1_arrayLength, ___2_innerloopBatchCount, ___3_dependsOn, method);
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void MaxPool2DJob_Full_Half_set_X_m7A80260126C5C3DC8A63506B610E80C6EF413051_inline (MaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void MaxPool2DJob_Full_Half_set_O_m5C1E38CA6EF2964AB6FE7AAEBF6AB28907D7D2A1_inline (MaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) ;
-inline JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisMaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582_m75DA074A06E9FCC3C52AD77F06D72688229F4D52 (MaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method)
-{
-	return ((  JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 (*) (MaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582, int32_t, int32_t, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08, const RuntimeMethod*))IJobParallelForExtensions_Schedule_TisMaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582_m75DA074A06E9FCC3C52AD77F06D72688229F4D52_gshared)(___0_jobData, ___1_arrayLength, ___2_innerloopBatchCount, ___3_dependsOn, method);
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void NegJob_Full_Float_set_X_m0DDBFCAA30B0CD1254170A2CC84B2E9D0B511DBC_inline (NegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void NegJob_Full_Float_set_O_m2F9147A17CE9F3E75F24CF646D4049798D27A8CC_inline (NegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) ;
-inline JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 IJobParallelForExtensions_Schedule_TisNegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60_m2B182C7DF0EBFC9A1A72B659803ED4F7A25710FE (NegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60 ___0_jobData, int32_t ___1_arrayLength, int32_t ___2_innerloopBatchCount, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___3_dependsOn, const RuntimeMethod* method)
-{
-	return ((  JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 (*) (NegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60, int32_t, int32_t, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08, const RuntimeMethod*))IJobParallelForExtensions_Schedule_TisNegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60_m2B182C7DF0EBFC9A1A72B659803ED4F7A25710FE_gshared)(___0_jobData, ___1_arrayLength, ___2_innerloopBatchCount, ___3_dependsOn, method);
+	uint8_t* V_0 = NULL;
+	uint8_t* V_1 = NULL;
+	uint8_t* V_2 = NULL;
+	uint8_t* V_3 = NULL;
+	RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B V_4;
+	memset((&V_4), 0, sizeof(V_4));
+	{
+	}
+	{
+		uint16_t* L_0 = ___0_destination;
+		uint8_t* L_1;
+		L_1 = il2cpp_unsafe_as_ref<uint8_t>(L_0);
+		V_1 = L_1;
+		uint8_t* L_2 = V_1;
+		uint16_t* L_3 = ___1_source;
+		uint8_t* L_4;
+		L_4 = il2cpp_unsafe_as_ref<uint8_t>(L_3);
+		V_2 = L_4;
+		uint8_t* L_5 = V_2;
+		V_0 = (uint8_t*)((uintptr_t)L_5);
+		uint8_t* L_6 = V_0;
+		uint64_t L_7 = ___2_elementCount;
+		int32_t L_8;
+		L_8 = il2cpp_unsafe_sizeof<uint16_t>();
+		Buffer_Memmove_mAA31A45BF1B1FA6490F0913B7FB59537767E5EF3((uint8_t*)((uintptr_t)L_2), L_6, (uint32_t)((int32_t)il2cpp_codegen_multiply(((int32_t)(uint32_t)L_7), L_8)), NULL);
+		V_1 = (uint8_t*)((uintptr_t)0);
+		V_2 = (uint8_t*)((uintptr_t)0);
+		return;
+	}
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Buffer_Memmove_TisUInt32_t1833D51FFA667B18A5AA4B8D34DE284F8495D29B_mEC6A6EF02BD38F45F23336F48D35B9DC2BC187FD_gshared (uint32_t* ___0_destination, uint32_t* ___1_source, uint64_t ___2_elementCount, const RuntimeMethod* method) 
 {
@@ -27202,223 +27355,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE0
 		return L_9;
 	}
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 BurstSchedulingHelper_ScheduleXOInternal_TisLeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187_mC1E371DC99935AC61F18DDF470DDE854CCF1DDD8_gshared (LeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187 ___0_jobData, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___1_fenceBeforeJobStart, void* ___2_ptrX, void* ___3_ptrO, int32_t ___4_arrayLength, int32_t ___5_innerloopBatchCount, const RuntimeMethod* method) 
-{
-	il2cpp_rgctx_method_init(method);
-	LeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	{
-		LeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187 L_0 = ___0_jobData;
-		V_0 = L_0;
-		il2cpp_codegen_initobj((&V_1), sizeof(ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE));
-		void* L_1 = ___2_ptrX;
-		(&V_1)->___ptr = L_1;
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_2 = V_1;
-		LeakyReluJob_Full_Float_set_X_mF639F6C484EAD6C5AB2F92DBB752E9F966B3E4BC_inline((&V_0), L_2, il2cpp_rgctx_method(method->rgctx_data, 1));
-		il2cpp_codegen_initobj((&V_2), sizeof(ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5));
-		void* L_3 = ___3_ptrO;
-		(&V_2)->___ptr = L_3;
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_4 = V_2;
-		LeakyReluJob_Full_Float_set_O_m8364DE299C7B237E22FEAFA6DB44B4573FAA7006_inline((&V_0), L_4, il2cpp_rgctx_method(method->rgctx_data, 2));
-		LeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187 L_5 = V_0;
-		int32_t L_6 = ___4_arrayLength;
-		int32_t L_7 = ___5_innerloopBatchCount;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_8 = ___1_fenceBeforeJobStart;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_9;
-		L_9 = IJobParallelForExtensions_Schedule_TisLeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187_m835A179430BAB2C3E09E42DF74A863705CFE659B(L_5, L_6, L_7, L_8, il2cpp_rgctx_method(method->rgctx_data, 3));
-		return L_9;
-	}
-}
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 BurstSchedulingHelper_ScheduleXOInternal_TisLeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72_mC4CD9E5A9C30AADAF29D24B928EFE08BAC8B0CC3_gshared (LeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72 ___0_jobData, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___1_fenceBeforeJobStart, void* ___2_ptrX, void* ___3_ptrO, int32_t ___4_arrayLength, int32_t ___5_innerloopBatchCount, const RuntimeMethod* method) 
-{
-	il2cpp_rgctx_method_init(method);
-	LeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	{
-		LeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72 L_0 = ___0_jobData;
-		V_0 = L_0;
-		il2cpp_codegen_initobj((&V_1), sizeof(ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE));
-		void* L_1 = ___2_ptrX;
-		(&V_1)->___ptr = L_1;
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_2 = V_1;
-		LeakyReluJob_Full_Half_set_X_mA6A8FA49902D359230429D819AD2F99613ECFE12_inline((&V_0), L_2, il2cpp_rgctx_method(method->rgctx_data, 1));
-		il2cpp_codegen_initobj((&V_2), sizeof(ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5));
-		void* L_3 = ___3_ptrO;
-		(&V_2)->___ptr = L_3;
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_4 = V_2;
-		LeakyReluJob_Full_Half_set_O_m7AB0A12AAB57F718D71DC66EDF82308AA97BAD0F_inline((&V_0), L_4, il2cpp_rgctx_method(method->rgctx_data, 2));
-		LeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72 L_5 = V_0;
-		int32_t L_6 = ___4_arrayLength;
-		int32_t L_7 = ___5_innerloopBatchCount;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_8 = ___1_fenceBeforeJobStart;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_9;
-		L_9 = IJobParallelForExtensions_Schedule_TisLeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72_mA1219479B4CBE74A2155D11A0B2C04FF0B773AB5(L_5, L_6, L_7, L_8, il2cpp_rgctx_method(method->rgctx_data, 3));
-		return L_9;
-	}
-}
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 BurstSchedulingHelper_ScheduleXOInternal_TisLogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83_m33EB18EE806D36E11948E8BE66FD57F74C28B56E_gshared (LogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83 ___0_jobData, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___1_fenceBeforeJobStart, void* ___2_ptrX, void* ___3_ptrO, int32_t ___4_arrayLength, int32_t ___5_innerloopBatchCount, const RuntimeMethod* method) 
-{
-	il2cpp_rgctx_method_init(method);
-	LogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	{
-		LogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83 L_0 = ___0_jobData;
-		V_0 = L_0;
-		il2cpp_codegen_initobj((&V_1), sizeof(ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE));
-		void* L_1 = ___2_ptrX;
-		(&V_1)->___ptr = L_1;
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_2 = V_1;
-		LogJob_Full_Float_set_X_m630D9B3145C8154EC8C6AB9D038A4460EA282365_inline((&V_0), L_2, il2cpp_rgctx_method(method->rgctx_data, 1));
-		il2cpp_codegen_initobj((&V_2), sizeof(ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5));
-		void* L_3 = ___3_ptrO;
-		(&V_2)->___ptr = L_3;
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_4 = V_2;
-		LogJob_Full_Float_set_O_m3DAAC24A4316E236179C576484ABF40053AE40BE_inline((&V_0), L_4, il2cpp_rgctx_method(method->rgctx_data, 2));
-		LogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83 L_5 = V_0;
-		int32_t L_6 = ___4_arrayLength;
-		int32_t L_7 = ___5_innerloopBatchCount;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_8 = ___1_fenceBeforeJobStart;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_9;
-		L_9 = IJobParallelForExtensions_Schedule_TisLogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83_mE02342F2E0F09DCCC7A4837099E5C9C49571E7D7(L_5, L_6, L_7, L_8, il2cpp_rgctx_method(method->rgctx_data, 3));
-		return L_9;
-	}
-}
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 BurstSchedulingHelper_ScheduleXOInternal_TisLogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854_mD09E1B03F1949327C8D61C2FE005C1B61EB03D12_gshared (LogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854 ___0_jobData, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___1_fenceBeforeJobStart, void* ___2_ptrX, void* ___3_ptrO, int32_t ___4_arrayLength, int32_t ___5_innerloopBatchCount, const RuntimeMethod* method) 
-{
-	il2cpp_rgctx_method_init(method);
-	LogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	{
-		LogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854 L_0 = ___0_jobData;
-		V_0 = L_0;
-		il2cpp_codegen_initobj((&V_1), sizeof(ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE));
-		void* L_1 = ___2_ptrX;
-		(&V_1)->___ptr = L_1;
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_2 = V_1;
-		LogJob_Full_Half_set_X_m123A5B57F25CB2A67C43F71250078C7FD9526CC5_inline((&V_0), L_2, il2cpp_rgctx_method(method->rgctx_data, 1));
-		il2cpp_codegen_initobj((&V_2), sizeof(ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5));
-		void* L_3 = ___3_ptrO;
-		(&V_2)->___ptr = L_3;
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_4 = V_2;
-		LogJob_Full_Half_set_O_m229B1956F393DCA60AC3F796DB255B8F47031986_inline((&V_0), L_4, il2cpp_rgctx_method(method->rgctx_data, 2));
-		LogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854 L_5 = V_0;
-		int32_t L_6 = ___4_arrayLength;
-		int32_t L_7 = ___5_innerloopBatchCount;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_8 = ___1_fenceBeforeJobStart;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_9;
-		L_9 = IJobParallelForExtensions_Schedule_TisLogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854_m75A19E21D8C6F004D936A2C21FC5D081B007872A(L_5, L_6, L_7, L_8, il2cpp_rgctx_method(method->rgctx_data, 3));
-		return L_9;
-	}
-}
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 BurstSchedulingHelper_ScheduleXOInternal_TisMaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED_mB2E9DEFF33AB9D2C02A2997628D23DAE52008EB0_gshared (MaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED ___0_jobData, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___1_fenceBeforeJobStart, void* ___2_ptrX, void* ___3_ptrO, int32_t ___4_arrayLength, int32_t ___5_innerloopBatchCount, const RuntimeMethod* method) 
-{
-	il2cpp_rgctx_method_init(method);
-	MaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	{
-		MaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED L_0 = ___0_jobData;
-		V_0 = L_0;
-		il2cpp_codegen_initobj((&V_1), sizeof(ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE));
-		void* L_1 = ___2_ptrX;
-		(&V_1)->___ptr = L_1;
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_2 = V_1;
-		MaxPool2DJob_Full_Float_set_X_m9FA829AAB48D404D58AAECA6DCE7B28D0B5E16E3_inline((&V_0), L_2, il2cpp_rgctx_method(method->rgctx_data, 1));
-		il2cpp_codegen_initobj((&V_2), sizeof(ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5));
-		void* L_3 = ___3_ptrO;
-		(&V_2)->___ptr = L_3;
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_4 = V_2;
-		MaxPool2DJob_Full_Float_set_O_mFFA1B856E66A305780B402F6024FEF4864A483AA_inline((&V_0), L_4, il2cpp_rgctx_method(method->rgctx_data, 2));
-		MaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED L_5 = V_0;
-		int32_t L_6 = ___4_arrayLength;
-		int32_t L_7 = ___5_innerloopBatchCount;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_8 = ___1_fenceBeforeJobStart;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_9;
-		L_9 = IJobParallelForExtensions_Schedule_TisMaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED_m1874D807CEF3AB2E5CBB85537A26457310138B13(L_5, L_6, L_7, L_8, il2cpp_rgctx_method(method->rgctx_data, 3));
-		return L_9;
-	}
-}
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 BurstSchedulingHelper_ScheduleXOInternal_TisMaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582_mD87996BD8D192FC186DEB63E8BCDE8DD97D9607E_gshared (MaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582 ___0_jobData, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___1_fenceBeforeJobStart, void* ___2_ptrX, void* ___3_ptrO, int32_t ___4_arrayLength, int32_t ___5_innerloopBatchCount, const RuntimeMethod* method) 
-{
-	il2cpp_rgctx_method_init(method);
-	MaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	{
-		MaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582 L_0 = ___0_jobData;
-		V_0 = L_0;
-		il2cpp_codegen_initobj((&V_1), sizeof(ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE));
-		void* L_1 = ___2_ptrX;
-		(&V_1)->___ptr = L_1;
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_2 = V_1;
-		MaxPool2DJob_Full_Half_set_X_m7A80260126C5C3DC8A63506B610E80C6EF413051_inline((&V_0), L_2, il2cpp_rgctx_method(method->rgctx_data, 1));
-		il2cpp_codegen_initobj((&V_2), sizeof(ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5));
-		void* L_3 = ___3_ptrO;
-		(&V_2)->___ptr = L_3;
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_4 = V_2;
-		MaxPool2DJob_Full_Half_set_O_m5C1E38CA6EF2964AB6FE7AAEBF6AB28907D7D2A1_inline((&V_0), L_4, il2cpp_rgctx_method(method->rgctx_data, 2));
-		MaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582 L_5 = V_0;
-		int32_t L_6 = ___4_arrayLength;
-		int32_t L_7 = ___5_innerloopBatchCount;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_8 = ___1_fenceBeforeJobStart;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_9;
-		L_9 = IJobParallelForExtensions_Schedule_TisMaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582_m75DA074A06E9FCC3C52AD77F06D72688229F4D52(L_5, L_6, L_7, L_8, il2cpp_rgctx_method(method->rgctx_data, 3));
-		return L_9;
-	}
-}
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 BurstSchedulingHelper_ScheduleXOInternal_TisNegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60_m3EF39FBA15C4BEE7D08AC0719EB0EC4340163DED_gshared (NegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60 ___0_jobData, JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 ___1_fenceBeforeJobStart, void* ___2_ptrX, void* ___3_ptrO, int32_t ___4_arrayLength, int32_t ___5_innerloopBatchCount, const RuntimeMethod* method) 
-{
-	il2cpp_rgctx_method_init(method);
-	NegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE V_1;
-	memset((&V_1), 0, sizeof(V_1));
-	ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 V_2;
-	memset((&V_2), 0, sizeof(V_2));
-	{
-		NegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60 L_0 = ___0_jobData;
-		V_0 = L_0;
-		il2cpp_codegen_initobj((&V_1), sizeof(ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE));
-		void* L_1 = ___2_ptrX;
-		(&V_1)->___ptr = L_1;
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_2 = V_1;
-		NegJob_Full_Float_set_X_m0DDBFCAA30B0CD1254170A2CC84B2E9D0B511DBC_inline((&V_0), L_2, il2cpp_rgctx_method(method->rgctx_data, 1));
-		il2cpp_codegen_initobj((&V_2), sizeof(ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5));
-		void* L_3 = ___3_ptrO;
-		(&V_2)->___ptr = L_3;
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_4 = V_2;
-		NegJob_Full_Float_set_O_m2F9147A17CE9F3E75F24CF646D4049798D27A8CC_inline((&V_0), L_4, il2cpp_rgctx_method(method->rgctx_data, 2));
-		NegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60 L_5 = V_0;
-		int32_t L_6 = ___4_arrayLength;
-		int32_t L_7 = ___5_innerloopBatchCount;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_8 = ___1_fenceBeforeJobStart;
-		JobHandle_t5DF5F99902FED3C801A81C05205CEA6CE039EF08 L_9;
-		L_9 = IJobParallelForExtensions_Schedule_TisNegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60_m2B182C7DF0EBFC9A1A72B659803ED4F7A25710FE(L_5, L_6, L_7, L_8, il2cpp_rgctx_method(method->rgctx_data, 3));
-		return L_9;
-	}
-}
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t RuntimeTypeHandle_get_Value_mDC366CF36C3E21505134EAEE72BD7629107D762A_inline (RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29343,118 +29279,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void Im2ColSlice
 	}
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void Im2ColSliceJob_set_O_mCB4D5FED83F8FDA0ED4E647BE0BCF4EC165B8D1C_inline (Im2ColSliceJob_t9F370C5E51B4C20377E157C1065FF7E9D23B0BA4* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_0 = ___0_value;
-		__this->___U3COU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LeakyReluJob_Full_Float_set_X_mF639F6C484EAD6C5AB2F92DBB752E9F966B3E4BC_inline (LeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_0 = ___0_value;
-		__this->___U3CXU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LeakyReluJob_Full_Float_set_O_m8364DE299C7B237E22FEAFA6DB44B4573FAA7006_inline (LeakyReluJob_Full_Float_t60888E9344E435DFBF52C44306EA79CB811A7187* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_0 = ___0_value;
-		__this->___U3COU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LeakyReluJob_Full_Half_set_X_mA6A8FA49902D359230429D819AD2F99613ECFE12_inline (LeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_0 = ___0_value;
-		__this->___U3CXU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LeakyReluJob_Full_Half_set_O_m7AB0A12AAB57F718D71DC66EDF82308AA97BAD0F_inline (LeakyReluJob_Full_Half_t4F81DA2F5DDAFCB55558CB9CAE49429F76C26B72* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_0 = ___0_value;
-		__this->___U3COU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LogJob_Full_Float_set_X_m630D9B3145C8154EC8C6AB9D038A4460EA282365_inline (LogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_0 = ___0_value;
-		__this->___U3CXU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LogJob_Full_Float_set_O_m3DAAC24A4316E236179C576484ABF40053AE40BE_inline (LogJob_Full_Float_t4FA49CDC0FC8F9EF05EB58B473C92A2815ACCB83* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_0 = ___0_value;
-		__this->___U3COU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LogJob_Full_Half_set_X_m123A5B57F25CB2A67C43F71250078C7FD9526CC5_inline (LogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_0 = ___0_value;
-		__this->___U3CXU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void LogJob_Full_Half_set_O_m229B1956F393DCA60AC3F796DB255B8F47031986_inline (LogJob_Full_Half_tABE72B4191529902A3E70496C34F41C8BB201854* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_0 = ___0_value;
-		__this->___U3COU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void MaxPool2DJob_Full_Float_set_X_m9FA829AAB48D404D58AAECA6DCE7B28D0B5E16E3_inline (MaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_0 = ___0_value;
-		__this->___U3CXU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void MaxPool2DJob_Full_Float_set_O_mFFA1B856E66A305780B402F6024FEF4864A483AA_inline (MaxPool2DJob_Full_Float_t13FC38103B7A3A6A8162F62019F3865EB57054ED* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_0 = ___0_value;
-		__this->___U3COU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void MaxPool2DJob_Full_Half_set_X_m7A80260126C5C3DC8A63506B610E80C6EF413051_inline (MaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_0 = ___0_value;
-		__this->___U3CXU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void MaxPool2DJob_Full_Half_set_O_m5C1E38CA6EF2964AB6FE7AAEBF6AB28907D7D2A1_inline (MaxPool2DJob_Full_Half_t0DDFFB4545E9EE12416DBAB1B137038CDD446582* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_0 = ___0_value;
-		__this->___U3COU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void NegJob_Full_Float_set_X_m0DDBFCAA30B0CD1254170A2CC84B2E9D0B511DBC_inline (NegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60* IL2CPP_PARAMETER_RESTRICT __this, ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE ___0_value, const RuntimeMethod* method) 
-{
-	{
-		ReadOnlyMemResource_t4340C3FE3CBCBD5A8904C1E4D8FF432AFDED52AE L_0 = ___0_value;
-		__this->___U3CXU3Ek__BackingField = L_0;
-		return;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void NegJob_Full_Float_set_O_m2F9147A17CE9F3E75F24CF646D4049798D27A8CC_inline (NegJob_Full_Float_t29A49A649ABFFCDFCEC65F869441594699E10F60* IL2CPP_PARAMETER_RESTRICT __this, ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 ___0_value, const RuntimeMethod* method) 
 {
 	{
 		ReadWriteMemResource_tCC00155889F6BE8F4B47A0576D458C4C3DBA0BB5 L_0 = ___0_value;

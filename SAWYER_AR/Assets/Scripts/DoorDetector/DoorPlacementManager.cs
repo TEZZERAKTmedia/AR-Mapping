@@ -23,24 +23,76 @@ public struct YoloDetection
 /// </summary>
 public static class YoloUtils
 {
-    public static class ImageConversionUtility
+   public static class ImageConversionUtility
     {
         public static Texture2D ConvertAndResize(XRCpuImage img, int size)
         {
-            // TODO: implement conversion & resize via Graphics.Blit or similar.
-            throw new NotImplementedException();
+            XRCpuImage.ConversionParams conversionParams = new XRCpuImage.ConversionParams
+            {
+                inputRect = new RectInt(0, 0, img.width, img.height),
+                outputDimensions = new Vector2Int(size, size),
+                outputFormat = TextureFormat.RGBA32,
+                transformation = XRCpuImage.Transformation.MirrorY
+            };
+
+            var rawTextureData = new NativeArray<byte>(size * size * 4, Allocator.Temp);
+            img.Convert(conversionParams, rawTextureData);
+
+            var tex = new Texture2D(size, size, TextureFormat.RGBA32, false);
+            tex.LoadRawTextureData(rawTextureData);
+            tex.Apply();
+            rawTextureData.Dispose();
+            return tex;
         }
     }
 
     public static List<YoloDetection> Decode(Tensor output, float threshold, int imageSize)
     {
-        // TODO: implement anchor/grid parsing, sigmoid, box conversion, and NMS.
-        return new List<YoloDetection>();
+        List<YoloDetection> results = new List<YoloDetection>();
+        for (int i = 0; i < output.shape.batch; i++)
+        {
+            float conf = output[i, 4];
+            if (conf >= threshold)
+            {
+                results.Add(new YoloDetection
+                {
+                    label = "door",
+                    confidence = conf,
+                    cx = output[i, 0],
+                    cy = output[i, 1],
+                    w  = output[i, 2],
+                    h  = output[i, 3]
+                });
+            }
+        }
+        return results;
     }
 
     public static void DrawDebugBoxes(List<YoloDetection> dets, int imageSize)
     {
-        // TODO: implement UI overlay of rectangles for each detection.
+        foreach (var det in dets)
+        {
+            float halfW = det.w * Screen.width * 0.5f;
+            float halfH = det.h * Screen.height * 0.5f;
+            float cx = det.cx * Screen.width;
+            float cy = (1f - det.cy) * Screen.height;
+
+            Rect rect = new Rect(cx - halfW, cy - halfH, halfW * 2, halfH * 2);
+            DrawRect(rect, Color.green);
+        }
+    }
+
+    private static void DrawRect(Rect rect, Color color)
+    {
+        Vector2 topLeft = new Vector2(rect.xMin, rect.yMin);
+        Vector2 topRight = new Vector2(rect.xMax, rect.yMin);
+        Vector2 bottomRight = new Vector2(rect.xMax, rect.yMax);
+        Vector2 bottomLeft = new Vector2(rect.xMin, rect.yMax);
+
+        Debug.DrawLine(topLeft, topRight, color);
+        Debug.DrawLine(topRight, bottomRight, color);
+        Debug.DrawLine(bottomRight, bottomLeft, color);
+        Debug.DrawLine(bottomLeft, topLeft, color);
     }
 
     public static Vector2[] GetBoxMidpoints(YoloDetection det, int screenW, int screenH)
@@ -56,7 +108,6 @@ public static class YoloUtils
         Vector2 bot   = new Vector2(cx, cy + halfH);
         return new[] { left, right, top, bot };
     }
-}
 
 /// <summary>
 /// Manages real-time door detection and placement in AR using YOLOv5 and AR Foundation.

@@ -708,6 +708,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1646842779}
+    - targetCorrespondingSourceObject: {fileID: 2512387470528047738, guid: 48cb3fb68c91eb94999fd99957eb0cae,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2037713770}
     - targetCorrespondingSourceObject: {fileID: 2512387470890420967, guid: 48cb3fb68c91eb94999fd99957eb0cae,
         type: 3}
       insertIndex: 0
@@ -716,7 +720,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2512387470528047719, guid: 48cb3fb68c91eb94999fd99957eb0cae,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1073471947}
+      addedObject: {fileID: 1073471948}
   m_SourcePrefab: {fileID: 100100000, guid: 48cb3fb68c91eb94999fd99957eb0cae, type: 3}
 --- !u!114 &331264286 stripped
 MonoBehaviour:
@@ -3210,7 +3214,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 331264285}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1073471947
+--- !u!114 &1073471948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3219,19 +3223,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1073471944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fef00224a73146659d8c8a62d41ed29, type: 3}
+  m_Script: {fileID: 11500000, guid: 728ad7fae8e460a4ba41265c7308d757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraManager: {fileID: 0}
-  raycastManager: {fileID: 0}
-  anchorManager: {fileID: 0}
-  doorModelAsset: {fileID: 0}
-  detectionThreshold: 0.5
-  inputImageSize: 640
-  doorQuadPrefab: {fileID: 0}
-  showDebugBoxes: 1
-  debugRawImage: {fileID: 0}
-  debugText: {fileID: 0}
+  <trackablesChanged>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  m_AnchorPrefab: {fileID: 0}
 --- !u!1 &1075000274
 GameObject:
   m_ObjectHideFlags: 0
@@ -6019,8 +6017,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2037713770}
-  - component: {fileID: 2037713769}
-  - component: {fileID: 2037713768}
+  - component: {fileID: 2037713773}
+  - component: {fileID: 2037713772}
+  - component: {fileID: 2037713771}
   m_Layer: 0
   m_Name: DoorDetectionManager
   m_TagString: Untagged
@@ -6028,39 +6027,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2037713768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037713767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7ea6e73bf8bd466692764c44d9ffd8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  raycastManager: {fileID: 331264289}
-  doorOverlayPrefab: {fileID: 707041304964140734, guid: 2550f82e543dc459fbe8bfc08e53b668,
-    type: 3}
---- !u!114 &2037713769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037713767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705adaa8d6a0048d78b4373435d86540, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yoloModelAsset: {fileID: 5022602860645237092, guid: 6579d9f548c144d9d80e8ea90b115dc0,
-    type: 3}
-  arCameraManager: {fileID: 331264288}
-  confidenceThreshold: 0.6
-  trackerManager: {fileID: 2037713768}
-  cameraTexture: {fileID: 0}
 --- !u!4 &2037713770
 Transform:
   m_ObjectHideFlags: 0
@@ -6069,13 +6035,70 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037713767}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.00229, y: 0.50715, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 567614203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2037713771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037713767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fef00224a73146659d8c8a62d41ed29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraManager: {fileID: 331264288}
+  raycastManager: {fileID: 331264289}
+  anchorManager: {fileID: 1073471948}
+  doorModelAsset: {fileID: 5022602860645237092, guid: 6579d9f548c144d9d80e8ea90b115dc0,
+    type: 3}
+  detectionThreshold: 0.5
+  inputImageSize: 640
+  doorQuadPrefab: {fileID: 707041304964140734, guid: 2550f82e543dc459fbe8bfc08e53b668,
+    type: 3}
+  showDebugBoxes: 1
+  debugRawImage: {fileID: 0}
+  debugText: {fileID: 0}
+--- !u!114 &2037713772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037713767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <trackablesChanged>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  m_RaycastPrefab: {fileID: 0}
+--- !u!114 &2037713773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037713767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 0}
+  m_OriginBaseGameObject: {fileID: 2037713767}
+  m_CameraFloorOffsetObject: {fileID: 0}
+  m_RequestedTrackingOriginMode: 0
+  m_CameraYOffset: 1.1176
 --- !u!1 &2043526614
 GameObject:
   m_ObjectHideFlags: 0
@@ -7426,5 +7449,4 @@ SceneRoots:
   - {fileID: 1920760380}
   - {fileID: 1935575280}
   - {fileID: 8257795552441920444}
-  - {fileID: 2037713770}
   - {fileID: 7580066429407978713}

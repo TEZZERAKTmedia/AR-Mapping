@@ -2408,6 +2408,10 @@ struct NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A
 {
 	intptr_t ___m_Self;
 };
+struct NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579 
+{
+	intptr_t ___m_Self;
+};
 struct NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80 
 {
 	intptr_t ___m_Self;
@@ -3594,6 +3598,21 @@ struct NativeParallelHashMap_2_t75E2745DBFEAC14A7B7306A89FBFB3B562CEA497
 struct NativeParallelMultiHashMap_2_t5A59639521C01B33A0ACC62CC3D8F1C5E6BD0C22 
 {
 	UnsafeParallelMultiHashMap_2_t4E7810C26A0DC9AFBF2B30BA797D0ACF99B4573F ___m_MultiHashMapData;
+};
+struct Nullable_1_t7AFC7B6FA040CD798CD0FC81605678A7095E8404 
+{
+	bool ___hasValue;
+	NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A ___value;
+};
+struct Nullable_1_t72BD043E740D3920EBE900BBEF9E202AE2D89EDD 
+{
+	bool ___hasValue;
+	NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579 ___value;
+};
+struct Nullable_1_tD042D16618AEAFA3928752C5DDC23F76FD80D6F9 
+{
+	bool ___hasValue;
+	NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80 ___value;
 };
 struct Nullable_1_t4B2D86FC8FAFDA460CEDCCB8205E7256E08FA9A7 
 {
@@ -5863,6 +5882,12 @@ struct StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248  : public RuntimeA
 };
 
 
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_m9974E3516DE20375CF9F93BBDBC87505D4E1E4F6_gshared_inline (Nullable_1_t7AFC7B6FA040CD798CD0FC81605678A7095E8404* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A Nullable_1_get_Value_m3626603408EF9698C79A80539106F170BE10DFD2_gshared (Nullable_1_t7AFC7B6FA040CD798CD0FC81605678A7095E8404* __this, const RuntimeMethod* method) ;
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_m455B3C79F1ADB68F38E93617FD89C5772C5E2C8D_gshared_inline (Nullable_1_t72BD043E740D3920EBE900BBEF9E202AE2D89EDD* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579 Nullable_1_get_Value_m6D4883168479371000AF5810244AFF61EE151514_gshared (Nullable_1_t72BD043E740D3920EBE900BBEF9E202AE2D89EDD* __this, const RuntimeMethod* method) ;
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_mC41535B99161226C05904479F4C56B84C8301177_gshared_inline (Nullable_1_tD042D16618AEAFA3928752C5DDC23F76FD80D6F9* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80 Nullable_1_get_Value_mE9F723B7EEB57DD3ED780018CE7255E47AAF7FEE_gshared (Nullable_1_tD042D16618AEAFA3928752C5DDC23F76FD80D6F9* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_m1E49109395DAE68082FDA5B0D3094E50F6A6ADB5_gshared_inline (Nullable_1_t4B2D86FC8FAFDA460CEDCCB8205E7256E08FA9A7* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR NSMutableData_tD8A9B0E8B362DFF9E6ADF4C4E5F7C3101EA99BBD Nullable_1_get_Value_m040A12F9EA5CEED6F5B7AD30D47087D3803D78C5_gshared (Nullable_1_t4B2D86FC8FAFDA460CEDCCB8205E7256E08FA9A7* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_m50B2C83F62E14675E65A0397923398F6E75D9007_gshared_inline (Nullable_1_tB342C2B3A7DE692EBA21BA536FC0C5111CE17CA1* __this, const RuntimeMethod* method) ;
@@ -6169,6 +6194,34 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t UnsafeList_1_get_Length_m
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t UnsafeList_1_get_Length_m33B6B84F4FE870EEB76A3E5D94630F4A5B759E12_gshared_inline (UnsafeList_1_tAAB699F827C515727975973202558FB27BEC605E* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t UnsafeList_1_get_Length_m0C39E94C5601FFCC645C9A5C7872DB8C3722DE81_gshared_inline (UnsafeList_1_t5587650D065DD59DDA21A042C17145BA4B6813AC* __this, const RuntimeMethod* method) ;
 
+inline bool Nullable_1_get_HasValue_m9974E3516DE20375CF9F93BBDBC87505D4E1E4F6_inline (Nullable_1_t7AFC7B6FA040CD798CD0FC81605678A7095E8404* __this, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Nullable_1_t7AFC7B6FA040CD798CD0FC81605678A7095E8404*, const RuntimeMethod*))Nullable_1_get_HasValue_m9974E3516DE20375CF9F93BBDBC87505D4E1E4F6_gshared_inline)(__this, method);
+}
+inline NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A Nullable_1_get_Value_m3626603408EF9698C79A80539106F170BE10DFD2 (Nullable_1_t7AFC7B6FA040CD798CD0FC81605678A7095E8404* __this, const RuntimeMethod* method)
+{
+	return ((  NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A (*) (Nullable_1_t7AFC7B6FA040CD798CD0FC81605678A7095E8404*, const RuntimeMethod*))Nullable_1_get_Value_m3626603408EF9698C79A80539106F170BE10DFD2_gshared)(__this, method);
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSBundle_AsIntPtr_m83D50BFA055FADA6614C708A12C8E7B77D9BAB15_inline (NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A* __this, const RuntimeMethod* method) ;
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool IntPtr_op_Equality_m7D9CDCDE9DC2A0C2C614633F4921E90187FAB271_inline (intptr_t ___0_value1, intptr_t ___1_value2, const RuntimeMethod* method) ;
+inline bool Nullable_1_get_HasValue_m455B3C79F1ADB68F38E93617FD89C5772C5E2C8D_inline (Nullable_1_t72BD043E740D3920EBE900BBEF9E202AE2D89EDD* __this, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Nullable_1_t72BD043E740D3920EBE900BBEF9E202AE2D89EDD*, const RuntimeMethod*))Nullable_1_get_HasValue_m455B3C79F1ADB68F38E93617FD89C5772C5E2C8D_gshared_inline)(__this, method);
+}
+inline NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579 Nullable_1_get_Value_m6D4883168479371000AF5810244AFF61EE151514 (Nullable_1_t72BD043E740D3920EBE900BBEF9E202AE2D89EDD* __this, const RuntimeMethod* method)
+{
+	return ((  NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579 (*) (Nullable_1_t72BD043E740D3920EBE900BBEF9E202AE2D89EDD*, const RuntimeMethod*))Nullable_1_get_Value_m6D4883168479371000AF5810244AFF61EE151514_gshared)(__this, method);
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSData_AsIntPtr_mFFF5444074F72538360DBBB602FC5CF4F7CBACC2_inline (NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579* __this, const RuntimeMethod* method) ;
+inline bool Nullable_1_get_HasValue_mC41535B99161226C05904479F4C56B84C8301177_inline (Nullable_1_tD042D16618AEAFA3928752C5DDC23F76FD80D6F9* __this, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Nullable_1_tD042D16618AEAFA3928752C5DDC23F76FD80D6F9*, const RuntimeMethod*))Nullable_1_get_HasValue_mC41535B99161226C05904479F4C56B84C8301177_gshared_inline)(__this, method);
+}
+inline NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80 Nullable_1_get_Value_mE9F723B7EEB57DD3ED780018CE7255E47AAF7FEE (Nullable_1_tD042D16618AEAFA3928752C5DDC23F76FD80D6F9* __this, const RuntimeMethod* method)
+{
+	return ((  NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80 (*) (Nullable_1_tD042D16618AEAFA3928752C5DDC23F76FD80D6F9*, const RuntimeMethod*))Nullable_1_get_Value_mE9F723B7EEB57DD3ED780018CE7255E47AAF7FEE_gshared)(__this, method);
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSError_AsIntPtr_mC626DC458106CBF73F0A357C254836751F65CC54_inline (NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80* __this, const RuntimeMethod* method) ;
 inline bool Nullable_1_get_HasValue_m1E49109395DAE68082FDA5B0D3094E50F6A6ADB5_inline (Nullable_1_t4B2D86FC8FAFDA460CEDCCB8205E7256E08FA9A7* __this, const RuntimeMethod* method)
 {
 	return ((  bool (*) (Nullable_1_t4B2D86FC8FAFDA460CEDCCB8205E7256E08FA9A7*, const RuntimeMethod*))Nullable_1_get_HasValue_m1E49109395DAE68082FDA5B0D3094E50F6A6ADB5_gshared_inline)(__this, method);
@@ -6178,7 +6231,6 @@ inline NSMutableData_tD8A9B0E8B362DFF9E6ADF4C4E5F7C3101EA99BBD Nullable_1_get_Va
 	return ((  NSMutableData_tD8A9B0E8B362DFF9E6ADF4C4E5F7C3101EA99BBD (*) (Nullable_1_t4B2D86FC8FAFDA460CEDCCB8205E7256E08FA9A7*, const RuntimeMethod*))Nullable_1_get_Value_m040A12F9EA5CEED6F5B7AD30D47087D3803D78C5_gshared)(__this, method);
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSMutableData_AsIntPtr_m6224C54804C8378F892389D06D7938E378408AE3_inline (NSMutableData_tD8A9B0E8B362DFF9E6ADF4C4E5F7C3101EA99BBD* __this, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool IntPtr_op_Equality_m7D9CDCDE9DC2A0C2C614633F4921E90187FAB271_inline (intptr_t ___0_value1, intptr_t ___1_value2, const RuntimeMethod* method) ;
 inline bool Nullable_1_get_HasValue_m50B2C83F62E14675E65A0397923398F6E75D9007_inline (Nullable_1_tB342C2B3A7DE692EBA21BA536FC0C5111CE17CA1* __this, const RuntimeMethod* method)
 {
 	return ((  bool (*) (Nullable_1_tB342C2B3A7DE692EBA21BA536FC0C5111CE17CA1*, const RuntimeMethod*))Nullable_1_get_HasValue_m50B2C83F62E14675E65A0397923398F6E75D9007_gshared_inline)(__this, method);
@@ -6239,8 +6291,6 @@ inline intptr_t NSSet_1_AsIntPtr_m1D429297BD86691BFF8348340F35ECE7077D1AB7_inlin
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t ARReferenceImage_AsIntPtr_mB51CBD770F897DE2CD783829FB7B6E7DB8ADB491_inline (ARReferenceImage_t523626F386E63F9AB65953D9AB27A651926D6136* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t ARReferenceObject_AsIntPtr_mBDCD3D70CB4E239E4363C1838F8340374552EB0E_inline (ARReferenceObject_t1B6B82E3659F03EE44CE1E715009DF12664C9379* __this, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSBundle_AsIntPtr_m83D50BFA055FADA6614C708A12C8E7B77D9BAB15_inline (NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A* __this, const RuntimeMethod* method) ;
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSError_AsIntPtr_mC626DC458106CBF73F0A357C254836751F65CC54_inline (NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t NSObject_CFGetRetainCount_m99C13F1D22AC91B9FCFB9E3BA77C7BAC7DDAAC92 (intptr_t ___0_obj, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NSObject_IsEqual_m9DAACD50F3050B8BE5AC68A12B3A9990D841EE65 (intptr_t ___0_self, intptr_t ___1_other, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NSObject_Retain_m96379E36E20F7B838B2C658BB109020E5B927A29 (intptr_t ___0_ptr, const RuntimeMethod* method) ;
@@ -7528,6 +7578,252 @@ inline int32_t UnsafeList_1_get_Length_m0C39E94C5601FFCC645C9A5C7872DB8C3722DE81
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThrowHelper_ThrowArgumentOutOfRangeException_mD7D90276EDCDF9394A8EA635923E3B48BB71BD56 (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThrowHelper_ThrowInvalidTypeWithPointersNotSupported_m5707DE408588F6EAC3FC7D10F9520308CF8C8CCF (Type_t* ___0_targetType, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Array_Clear_m50BAA3751899858B097D3FF2ED31F284703FE5CB (RuntimeArray* ___0_array, int32_t ___1_index, int32_t ___2_length, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NSObject_ArePointersEqual_TisNSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A_m075E6D539C4B9474960A7DB9A05752308A8987D2_gshared (Nullable_1_t7AFC7B6FA040CD798CD0FC81605678A7095E8404 ___0_lhs, Nullable_1_t7AFC7B6FA040CD798CD0FC81605678A7095E8404 ___1_rhs, const RuntimeMethod* method) 
+{
+	il2cpp_rgctx_method_init(method);
+	NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		bool L_0;
+		L_0 = Nullable_1_get_HasValue_m9974E3516DE20375CF9F93BBDBC87505D4E1E4F6_inline((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_0)
+		{
+			goto IL_0042;
+		}
+	}
+	{
+		bool L_1;
+		L_1 = Nullable_1_get_HasValue_m9974E3516DE20375CF9F93BBDBC87505D4E1E4F6_inline((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_1)
+		{
+			goto IL_0042;
+		}
+	}
+	{
+		NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A L_2;
+		L_2 = Nullable_1_get_Value_m3626603408EF9698C79A80539106F170BE10DFD2((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_2;
+		intptr_t L_3;
+		L_3 = NSBundle_AsIntPtr_m83D50BFA055FADA6614C708A12C8E7B77D9BAB15_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A L_4;
+		L_4 = Nullable_1_get_Value_m3626603408EF9698C79A80539106F170BE10DFD2((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_4;
+		intptr_t L_5;
+		L_5 = NSBundle_AsIntPtr_m83D50BFA055FADA6614C708A12C8E7B77D9BAB15_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		bool L_6;
+		L_6 = IntPtr_op_Equality_m7D9CDCDE9DC2A0C2C614633F4921E90187FAB271_inline(L_3, L_5, NULL);
+		return L_6;
+	}
+
+IL_0042:
+	{
+		bool L_7;
+		L_7 = Nullable_1_get_HasValue_m9974E3516DE20375CF9F93BBDBC87505D4E1E4F6_inline((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_7)
+		{
+			goto IL_006b;
+		}
+	}
+	{
+		NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A L_8;
+		L_8 = Nullable_1_get_Value_m3626603408EF9698C79A80539106F170BE10DFD2((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_8;
+		intptr_t L_9;
+		L_9 = NSBundle_AsIntPtr_m83D50BFA055FADA6614C708A12C8E7B77D9BAB15_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		bool L_10;
+		L_10 = IntPtr_op_Equality_m7D9CDCDE9DC2A0C2C614633F4921E90187FAB271_inline(L_9, 0, NULL);
+		return L_10;
+	}
+
+IL_006b:
+	{
+		bool L_11;
+		L_11 = Nullable_1_get_HasValue_m9974E3516DE20375CF9F93BBDBC87505D4E1E4F6_inline((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_11)
+		{
+			goto IL_0094;
+		}
+	}
+	{
+		NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A L_12;
+		L_12 = Nullable_1_get_Value_m3626603408EF9698C79A80539106F170BE10DFD2((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_12;
+		intptr_t L_13;
+		L_13 = NSBundle_AsIntPtr_m83D50BFA055FADA6614C708A12C8E7B77D9BAB15_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		bool L_14;
+		L_14 = IntPtr_op_Equality_m7D9CDCDE9DC2A0C2C614633F4921E90187FAB271_inline(L_13, 0, NULL);
+		return L_14;
+	}
+
+IL_0094:
+	{
+		return (bool)1;
+	}
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NSObject_ArePointersEqual_TisNSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579_m7CD0937579F076B05B6755E3FF5DE80B12B56159_gshared (Nullable_1_t72BD043E740D3920EBE900BBEF9E202AE2D89EDD ___0_lhs, Nullable_1_t72BD043E740D3920EBE900BBEF9E202AE2D89EDD ___1_rhs, const RuntimeMethod* method) 
+{
+	il2cpp_rgctx_method_init(method);
+	NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		bool L_0;
+		L_0 = Nullable_1_get_HasValue_m455B3C79F1ADB68F38E93617FD89C5772C5E2C8D_inline((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_0)
+		{
+			goto IL_0042;
+		}
+	}
+	{
+		bool L_1;
+		L_1 = Nullable_1_get_HasValue_m455B3C79F1ADB68F38E93617FD89C5772C5E2C8D_inline((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_1)
+		{
+			goto IL_0042;
+		}
+	}
+	{
+		NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579 L_2;
+		L_2 = Nullable_1_get_Value_m6D4883168479371000AF5810244AFF61EE151514((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_2;
+		intptr_t L_3;
+		L_3 = NSData_AsIntPtr_mFFF5444074F72538360DBBB602FC5CF4F7CBACC2_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579 L_4;
+		L_4 = Nullable_1_get_Value_m6D4883168479371000AF5810244AFF61EE151514((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_4;
+		intptr_t L_5;
+		L_5 = NSData_AsIntPtr_mFFF5444074F72538360DBBB602FC5CF4F7CBACC2_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		bool L_6;
+		L_6 = IntPtr_op_Equality_m7D9CDCDE9DC2A0C2C614633F4921E90187FAB271_inline(L_3, L_5, NULL);
+		return L_6;
+	}
+
+IL_0042:
+	{
+		bool L_7;
+		L_7 = Nullable_1_get_HasValue_m455B3C79F1ADB68F38E93617FD89C5772C5E2C8D_inline((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_7)
+		{
+			goto IL_006b;
+		}
+	}
+	{
+		NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579 L_8;
+		L_8 = Nullable_1_get_Value_m6D4883168479371000AF5810244AFF61EE151514((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_8;
+		intptr_t L_9;
+		L_9 = NSData_AsIntPtr_mFFF5444074F72538360DBBB602FC5CF4F7CBACC2_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		bool L_10;
+		L_10 = IntPtr_op_Equality_m7D9CDCDE9DC2A0C2C614633F4921E90187FAB271_inline(L_9, 0, NULL);
+		return L_10;
+	}
+
+IL_006b:
+	{
+		bool L_11;
+		L_11 = Nullable_1_get_HasValue_m455B3C79F1ADB68F38E93617FD89C5772C5E2C8D_inline((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_11)
+		{
+			goto IL_0094;
+		}
+	}
+	{
+		NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579 L_12;
+		L_12 = Nullable_1_get_Value_m6D4883168479371000AF5810244AFF61EE151514((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_12;
+		intptr_t L_13;
+		L_13 = NSData_AsIntPtr_mFFF5444074F72538360DBBB602FC5CF4F7CBACC2_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		bool L_14;
+		L_14 = IntPtr_op_Equality_m7D9CDCDE9DC2A0C2C614633F4921E90187FAB271_inline(L_13, 0, NULL);
+		return L_14;
+	}
+
+IL_0094:
+	{
+		return (bool)1;
+	}
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NSObject_ArePointersEqual_TisNSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80_mA8E4AECA845ABB07A3110A337E98718879D9D8F6_gshared (Nullable_1_tD042D16618AEAFA3928752C5DDC23F76FD80D6F9 ___0_lhs, Nullable_1_tD042D16618AEAFA3928752C5DDC23F76FD80D6F9 ___1_rhs, const RuntimeMethod* method) 
+{
+	il2cpp_rgctx_method_init(method);
+	NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	{
+		bool L_0;
+		L_0 = Nullable_1_get_HasValue_mC41535B99161226C05904479F4C56B84C8301177_inline((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_0)
+		{
+			goto IL_0042;
+		}
+	}
+	{
+		bool L_1;
+		L_1 = Nullable_1_get_HasValue_mC41535B99161226C05904479F4C56B84C8301177_inline((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_1)
+		{
+			goto IL_0042;
+		}
+	}
+	{
+		NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80 L_2;
+		L_2 = Nullable_1_get_Value_mE9F723B7EEB57DD3ED780018CE7255E47AAF7FEE((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_2;
+		intptr_t L_3;
+		L_3 = NSError_AsIntPtr_mC626DC458106CBF73F0A357C254836751F65CC54_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80 L_4;
+		L_4 = Nullable_1_get_Value_mE9F723B7EEB57DD3ED780018CE7255E47AAF7FEE((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_4;
+		intptr_t L_5;
+		L_5 = NSError_AsIntPtr_mC626DC458106CBF73F0A357C254836751F65CC54_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		bool L_6;
+		L_6 = IntPtr_op_Equality_m7D9CDCDE9DC2A0C2C614633F4921E90187FAB271_inline(L_3, L_5, NULL);
+		return L_6;
+	}
+
+IL_0042:
+	{
+		bool L_7;
+		L_7 = Nullable_1_get_HasValue_mC41535B99161226C05904479F4C56B84C8301177_inline((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_7)
+		{
+			goto IL_006b;
+		}
+	}
+	{
+		NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80 L_8;
+		L_8 = Nullable_1_get_Value_mE9F723B7EEB57DD3ED780018CE7255E47AAF7FEE((&___0_lhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_8;
+		intptr_t L_9;
+		L_9 = NSError_AsIntPtr_mC626DC458106CBF73F0A357C254836751F65CC54_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		bool L_10;
+		L_10 = IntPtr_op_Equality_m7D9CDCDE9DC2A0C2C614633F4921E90187FAB271_inline(L_9, 0, NULL);
+		return L_10;
+	}
+
+IL_006b:
+	{
+		bool L_11;
+		L_11 = Nullable_1_get_HasValue_mC41535B99161226C05904479F4C56B84C8301177_inline((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 1));
+		if (!L_11)
+		{
+			goto IL_0094;
+		}
+	}
+	{
+		NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80 L_12;
+		L_12 = Nullable_1_get_Value_mE9F723B7EEB57DD3ED780018CE7255E47AAF7FEE((&___1_rhs), il2cpp_rgctx_method(method->rgctx_data, 3));
+		V_0 = L_12;
+		intptr_t L_13;
+		L_13 = NSError_AsIntPtr_mC626DC458106CBF73F0A357C254836751F65CC54_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 5));
+		bool L_14;
+		L_14 = IntPtr_op_Equality_m7D9CDCDE9DC2A0C2C614633F4921E90187FAB271_inline(L_13, 0, NULL);
+		return L_14;
+	}
+
+IL_0094:
+	{
+		return (bool)1;
+	}
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool NSObject_ArePointersEqual_TisNSMutableData_tD8A9B0E8B362DFF9E6ADF4C4E5F7C3101EA99BBD_m068A02DA80BB45DBE0D07563E8945E51340649ED_gshared (Nullable_1_t4B2D86FC8FAFDA460CEDCCB8205E7256E08FA9A7 ___0_lhs, Nullable_1_t4B2D86FC8FAFDA460CEDCCB8205E7256E08FA9A7 ___1_rhs, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -29288,7 +29584,7 @@ IL_023c:
 		return L_105;
 	}
 }
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSMutableData_AsIntPtr_m6224C54804C8378F892389D06D7938E378408AE3_inline (NSMutableData_tD8A9B0E8B362DFF9E6ADF4C4E5F7C3101EA99BBD* __this, const RuntimeMethod* method) 
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSBundle_AsIntPtr_m83D50BFA055FADA6614C708A12C8E7B77D9BAB15_inline (NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A* __this, const RuntimeMethod* method) 
 {
 	{
 		intptr_t L_0 = __this->___m_Self;
@@ -29301,6 +29597,27 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool IntPtr_op_Equality_m7D9CDCDE
 		intptr_t L_0 = ___0_value1;
 		intptr_t L_1 = ___1_value2;
 		return (bool)((((intptr_t)L_0) == ((intptr_t)L_1))? 1 : 0);
+	}
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSData_AsIntPtr_mFFF5444074F72538360DBBB602FC5CF4F7CBACC2_inline (NSData_t9AAA5FECF2A97E9D10DB92D4BDB76B3FA7BEA579* __this, const RuntimeMethod* method) 
+{
+	{
+		intptr_t L_0 = __this->___m_Self;
+		return L_0;
+	}
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSError_AsIntPtr_mC626DC458106CBF73F0A357C254836751F65CC54_inline (NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80* __this, const RuntimeMethod* method) 
+{
+	{
+		intptr_t L_0 = __this->___m_Self;
+		return L_0;
+	}
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSMutableData_AsIntPtr_m6224C54804C8378F892389D06D7938E378408AE3_inline (NSMutableData_tD8A9B0E8B362DFF9E6ADF4C4E5F7C3101EA99BBD* __this, const RuntimeMethod* method) 
+{
+	{
+		intptr_t L_0 = __this->___m_Self;
+		return L_0;
 	}
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSMutableString_AsIntPtr_m5D70D0EE3CFAB410E4D8AE31F92ABABE58BE27F1_inline (NSMutableString_t45B569C499EC13C60D9131B3A0D7E15D806DDA26* __this, const RuntimeMethod* method) 
@@ -29339,20 +29656,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t ARReferenceImage_AsIntPt
 	}
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t ARReferenceObject_AsIntPtr_mBDCD3D70CB4E239E4363C1838F8340374552EB0E_inline (ARReferenceObject_t1B6B82E3659F03EE44CE1E715009DF12664C9379* __this, const RuntimeMethod* method) 
-{
-	{
-		intptr_t L_0 = __this->___m_Self;
-		return L_0;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSBundle_AsIntPtr_m83D50BFA055FADA6614C708A12C8E7B77D9BAB15_inline (NSBundle_t0BA04F85AFE6BB05F33F16826DE3C88358C4CD2A* __this, const RuntimeMethod* method) 
-{
-	{
-		intptr_t L_0 = __this->___m_Self;
-		return L_0;
-	}
-}
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR intptr_t NSError_AsIntPtr_mC626DC458106CBF73F0A357C254836751F65CC54_inline (NSError_t2D5B776DCC1C16BD32BA4EB06DE60A3068378E80* __this, const RuntimeMethod* method) 
 {
 	{
 		intptr_t L_0 = __this->___m_Self;
@@ -29408,6 +29711,27 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR ReadOnlyCollection_1_t0A3EEA206F0
 {
 	{
 		ReadOnlyCollection_1_t0A3EEA206F04C2F9E8303E24D863C2E7FD258886* L_0 = __this->___m_innerExceptions;
+		return L_0;
+	}
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_m9974E3516DE20375CF9F93BBDBC87505D4E1E4F6_gshared_inline (Nullable_1_t7AFC7B6FA040CD798CD0FC81605678A7095E8404* __this, const RuntimeMethod* method) 
+{
+	{
+		bool L_0 = __this->___hasValue;
+		return L_0;
+	}
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_m455B3C79F1ADB68F38E93617FD89C5772C5E2C8D_gshared_inline (Nullable_1_t72BD043E740D3920EBE900BBEF9E202AE2D89EDD* __this, const RuntimeMethod* method) 
+{
+	{
+		bool L_0 = __this->___hasValue;
+		return L_0;
+	}
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Nullable_1_get_HasValue_mC41535B99161226C05904479F4C56B84C8301177_gshared_inline (Nullable_1_tD042D16618AEAFA3928752C5DDC23F76FD80D6F9* __this, const RuntimeMethod* method) 
+{
+	{
+		bool L_0 = __this->___hasValue;
 		return L_0;
 	}
 }
