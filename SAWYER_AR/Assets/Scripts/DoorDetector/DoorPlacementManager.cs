@@ -1,147 +1,240 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using Unity.Barracuda;
+using TMPro;
 
+/// <summary>
+/// Holds one detection result from YOLOv5.
+/// </summary>
+public struct YoloDetection
+{
+    public string label;
+    public float confidence;
+    public float cx, cy, w, h; // normalized center x/y and width/height
+}
+
+/// <summary>
+/// Static utility class for image conversion, YOLO decoding, and debug drawing.
+/// </summary>
+public static class YoloUtils
+{
+    public static class ImageConversionUtility
+    {
+        public static Texture2D ConvertAndResize(XRCpuImage img, int size)
+        {
+            // TODO: implement conversion & resize via Graphics.Blit or similar.
+            throw new NotImplementedException();
+        }
+    }
+
+    public static List<YoloDetection> Decode(Tensor output, float threshold, int imageSize)
+    {
+        // TODO: implement anchor/grid parsing, sigmoid, box conversion, and NMS.
+        return new List<YoloDetection>();
+    }
+
+    public static void DrawDebugBoxes(List<YoloDetection> dets, int imageSize)
+    {
+        // TODO: implement UI overlay of rectangles for each detection.
+    }
+
+    public static Vector2[] GetBoxMidpoints(YoloDetection det, int screenW, int screenH)
+    {
+        float halfW = det.w * screenW * 0.5f;
+        float halfH = det.h * screenH * 0.5f;
+        float cx = det.cx * screenW;
+        float cy = (1f - det.cy) * screenH;
+
+        Vector2 left  = new Vector2(cx - halfW, cy);
+        Vector2 right = new Vector2(cx + halfW, cy);
+        Vector2 top   = new Vector2(cx, cy - halfH);
+        Vector2 bot   = new Vector2(cx, cy + halfH);
+        return new[] { left, right, top, bot };
+    }
+}
+
+/// <summary>
+/// Manages real-time door detection and placement in AR using YOLOv5 and AR Foundation.
+/// </summary>
 [RequireComponent(typeof(ARRaycastManager))]
 public class DoorPlacementManager : MonoBehaviour
 {
     [Header("AR Components")]
-    [SerializeField] private ARCameraManager cameraManager;
-    [SerializeField] private ARRaycastManager raycastManager;
-    [SerializeField] private ARAnchorManager anchorManager;
+    [SerializeField] private ARCameraManager    cameraManager;
+    [SerializeField] private ARRaycastManager   raycastManager;
+    [SerializeField] private ARAnchorManager    anchorManager;
 
     [Header("YOLOv5 Model")]
     [SerializeField] private NNModel doorModelAsset;
-    [Range(0f, 1f)] public float detectionThreshold = 0.5f;
+    [Range(0f, 1f)] [Tooltip("Confidence threshold for detections")] public float detectionThreshold = 0.5f;
+    [Tooltip("Model input width & height (e.g. 640)")]
+    [SerializeField] private int inputImageSize = 640;
 
     [Header("Door Quad Prefab")]
     [SerializeField] private GameObject doorQuadPrefab;
 
-    // internal Barracuda
-    private Model model;
+    [Header("Debug Visualization")]
+    [SerializeField] private bool showDebugBoxes = true;
+    [SerializeField] private RawImage debugRawImage;
+    [SerializeField] private TextMeshProUGUI debugText;
+
+    private Model   model;
     private IWorker worker;
 
-    // tracked doors
+    private bool isProcessing = false;
+    private Stopwatch stopwatch = new Stopwatch();
+    private float lastInferenceMs, lastDecodeMs, lastTotalMs;
+
     private List<DoorInfo> trackedDoors = new List<DoorInfo>();
-    private const float mergeDistance = 0.5f; // meters
+    private const float mergeDistance = 0.5f;
+    private const int evictionFrameThreshold = 30;
+    private int currentFrame = 0;
 
     void Awake()
     {
-        // load Barracuda model
-        model = ModelLoader.Load(doorModelAsset);
+        model  = ModelLoader.Load(doorModelAsset);
         worker = WorkerFactory.CreateWorker(WorkerFactory.Type.Auto, model);
     }
 
-    void OnEnable()
-    {
-        cameraManager.frameReceived += OnCameraFrame;
-    }
+    void OnEnable()  => cameraManager.frameReceived += OnCameraFrame;
     void OnDisable()
     {
         cameraManager.frameReceived -= OnCameraFrame;
         worker?.Dispose();
     }
 
-    void OnCameraFrame(ARCameraFrameEventArgs args)
+    void Update()
     {
-        // 1. Acquire camera image
-        if (!cameraManager.TryAcquireLatestCpuImage(out XRCpuImage image))
-            return;
-
-        // 2. Convert image to Texture2D & create input Tensor
-        // (Utility method needed for conversion)
-        Texture2D tex = image.ConvertToRGBA32();
-        image.Dispose();
-        var input = new Tensor(tex, channels:3);
-        Destroy(tex);
-
-        // 3. Run model
-        worker.Execute(input);
-        Tensor output = worker.PeekOutput();
-        input.Dispose();
-
-        // 4. Decode detections
-        var detections = YoloUtils.DecodeBoxes(output, detectionThreshold);
-        output.Dispose();
-
-        // 5. Process each detection
-        foreach (var det in detections)
+        currentFrame++;
+        // Evict stale doors
+        for (int i = trackedDoors.Count - 1; i >= 0; i--)
         {
-            if (det.label != "door") continue;
-            HandleDoorDetection(det);
+            if (currentFrame - trackedDoors[i].lastSeenFrame > evictionFrameThreshold)
+            {
+                // Remove anchor and quad
+                anchorManager.TryRemoveAnchor(trackedDoors[i].anchor);
+                Destroy(trackedDoors[i].anchor.gameObject);
+                Destroy(trackedDoors[i].quad);
+                trackedDoors.RemoveAt(i);
+            }
+        }
+
+        if (showDebugBoxes && debugText)
+        {
+            debugText.text =
+                $"Doors: {trackedDoors.Count}\n" +
+                $"Inf: {lastInferenceMs:F1}ms  Dec: {lastDecodeMs:F1}ms  Total: {lastTotalMs:F1}ms";
         }
     }
 
-    void HandleDoorDetection(YoloDetection det)
+    private void OnCameraFrame(ARCameraFrameEventArgs args)
     {
-        // screen-space box in pixels
-        Rect box = det.box;
-        Vector2 center = box.center;
+        if (isProcessing) return;
+        isProcessing = true;
 
-        // 5a. Center raycast
-        if (!RaycastToWorld(center, out Pose centerPose))
+        stopwatch.Restart();
+        if (!cameraManager.TryAcquireLatestCpuImage(out XRCpuImage image))
+        {
+            isProcessing = false;
             return;
+        }
 
-        // 5b. Check clustering: same door?
+        Texture2D tex = YoloUtils.ImageConversionUtility.ConvertAndResize(image, inputImageSize);
+        image.Dispose();
+        if (showDebugBoxes && debugRawImage) debugRawImage.texture = tex;
+
+        using (var input = new Tensor(tex, 3))
+        {
+            Destroy(tex);
+            float prepMs = stopwatch.ElapsedMilliseconds;
+
+            stopwatch.Restart();
+            worker.Execute(input);
+            using (Tensor output = worker.PeekOutput())
+            {
+                lastInferenceMs = stopwatch.ElapsedMilliseconds;
+
+                stopwatch.Restart();
+                var detections = YoloUtils.Decode(output, detectionThreshold, inputImageSize);
+                lastDecodeMs = stopwatch.ElapsedMilliseconds;
+                lastTotalMs = prepMs + lastInferenceMs + lastDecodeMs;
+
+                if (showDebugBoxes) YoloUtils.DrawDebugBoxes(detections, inputImageSize);
+
+                foreach (var det in detections)
+                {
+                    if (det.label == "door") HandleDoorDetection(det);
+                }
+            }
+        }
+
+        isProcessing = false;
+    }
+
+    private void HandleDoorDetection(YoloDetection det)
+    {
+        Vector2 screenPt = new Vector2(det.cx * Screen.width, (1f - det.cy) * Screen.height);
+        if (!RaycastToWorld(screenPt, out Pose centerPose)) return;
+
         foreach (var info in trackedDoors)
         {
-            float dist = Vector3.Distance(centerPose.position, info.anchor.transform.position);
-            if (dist < mergeDistance)
+            if (Vector3.Distance(centerPose.position, info.anchor.transform.position) < mergeDistance)
             {
-                // update existing door
-                UpdateDoorQuad(info, box);
+                info.lastSeenFrame = currentFrame;
+                UpdateDoorQuad(info, det);
                 return;
             }
         }
 
-        // 5c. New door: create anchor and quad
-        ARAnchor anchor = anchorManager.AddAnchor(centerPose);
+        // 1) Create anchor GameObject
+        var anchorGO = new GameObject("DoorAnchor");
+        anchorGO.transform.SetPositionAndRotation(centerPose.position, centerPose.rotation);
+        // 2) Add ARAnchor component
+        var anchor = anchorGO.AddComponent<ARAnchor>();
         if (anchor == null) return;
 
-        GameObject quad = Instantiate(doorQuadPrefab, anchor.transform);
-        DoorInfo newInfo = new DoorInfo(anchor, quad);
-        trackedDoors.Add(newInfo);
-        UpdateDoorQuad(newInfo, box);
+        // 3) Instantiate and track quad
+        var quad = Instantiate(doorQuadPrefab, anchor.transform);
+        trackedDoors.Add(new DoorInfo(anchor, quad, currentFrame));
+        UpdateDoorQuad(trackedDoors[^1], det);
     }
 
-    void UpdateDoorQuad(DoorInfo info, Rect box)
+    private void UpdateDoorQuad(DoorInfo info, YoloDetection det)
     {
-        // compute 4 edge midpoints
-        Vector2 leftMid   = new Vector2(box.xMin, box.center.y);
-        Vector2 rightMid  = new Vector2(box.xMax, box.center.y);
-        Vector2 topMid    = new Vector2(box.center.x, box.yMin);
-        Vector2 bottomMid = new Vector2(box.center.x, box.yMax);
+        Vector2[] pts = YoloUtils.GetBoxMidpoints(det, Screen.width, Screen.height);
+        var worldPoses = new List<Pose>();
+        foreach (var pt in pts)
+        {
+            if (RaycastToWorld(pt, out Pose p)) worldPoses.Add(p);
+        }
+        if (worldPoses.Count < 4) return;
 
-        if (!RaycastToWorld(leftMid, out Pose leftPose) ||
-            !RaycastToWorld(rightMid, out Pose rightPose) ||
-            !RaycastToWorld(topMid, out Pose topPose) ||
-            !RaycastToWorld(bottomMid, out Pose bottomPose))
-            return;
+        Vector3 left  = worldPoses[0].position;
+        Vector3 right = worldPoses[1].position;
+        Vector3 top   = worldPoses[2].position;
+        Vector3 bot   = worldPoses[3].position;
+        float realW   = Vector3.Distance(left, right);
+        float realH   = Vector3.Distance(top, bot);
+        Vector3 center= (left + right + top + bot) * 0.25f;
+        Vector3 horiz = (right - left).normalized;
+        Vector3 normal= Vector3.Cross(Vector3.up, horiz).normalized;
 
-        // measurements
-        float realWidth  = Vector3.Distance(leftPose.position, rightPose.position);
-        float realHeight = Vector3.Distance(topPose.position, bottomPose.position);
-        Vector3 realCenter =
-            (leftPose.position + rightPose.position + topPose.position + bottomPose.position) * 0.25f;
-
-        // normal from horizontal edge
-        Vector3 horiz = (rightPose.position - leftPose.position).normalized;
-        Vector3 normal = Vector3.Cross(Vector3.up, horiz).normalized;
-
-        // apply transform & scale
-        Transform quadTransform = info.quad.transform;
-        quadTransform.position = realCenter;
-        quadTransform.rotation = Quaternion.LookRotation(normal, Vector3.up);
-        quadTransform.localScale = new Vector3(realWidth, realHeight, 1f);
+        var t = info.quad.transform;
+        t.position   = center;
+        t.rotation   = Quaternion.LookRotation(normal, Vector3.up);
+        t.localScale = new Vector3(realW, realH, 1f);
     }
 
-    bool RaycastToWorld(Vector2 screenPt, out Pose pose)
+    private bool RaycastToWorld(Vector2 screenPt, out Pose pose)
     {
         var hits = new List<ARRaycastHit>();
         if (raycastManager.Raycast(screenPt, hits,
-            TrackableType.PlaneEstimated | TrackableType.FeaturePoint))
+            TrackableType.PlaneWithinPolygon | TrackableType.FeaturePoint))
         {
             pose = hits[0].pose;
             return true;
@@ -150,28 +243,16 @@ public class DoorPlacementManager : MonoBehaviour
         return false;
     }
 
-    // helper struct
-    class DoorInfo
+    private class DoorInfo
     {
-        public ARAnchor anchor;
+        public ARAnchor   anchor;
         public GameObject quad;
-        public DoorInfo(ARAnchor a, GameObject q) { anchor = a; quad = q; }
-    }
-
-    // placeholder for YOLO detection data
-    struct YoloDetection
-    {
-        public string label;
-        public float confidence;
-        public Rect box;
-    }
-
-    static class YoloUtils
-    {
-        public static List<YoloDetection> DecodeBoxes(Tensor output, float threshold)
+        public int        lastSeenFrame;
+        public DoorInfo(ARAnchor a, GameObject q, int frame)
         {
-            // TODO: implement YOLOv5 output decoding (NMS, box conversion)
-            return new List<YoloDetection>();
+            anchor = a;
+            quad   = q;
+            lastSeenFrame = frame;
         }
     }
 }
